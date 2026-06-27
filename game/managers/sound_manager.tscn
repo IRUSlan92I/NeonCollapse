@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cfb2adf5hft7b" path="res://sound/ui/select.wav" id="4_0i6kl"]
 
 [node name="SoundManager" type="Node" unique_id=1576371552]
+process_mode = 3
 script = ExtResource("1_cg0sy")
 player_count_ui = 8
 player_count_sfx = 32

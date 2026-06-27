@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://0e3xvmn36j5b"]
+
+[ext_resource type="Theme" uid="uid://bqj884yfvhhft" path="res://game/themes/main_menu.tres" id="1_i4rg2"]
+[ext_resource type="Script" uid="uid://b45v44jhm26oj" path="res://game/menu/pause_menu.gd" id="2_e1jsn"]
+
+[node name="PauseMenu" type="Control" unique_id=1815975678]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_i4rg2")
+script = ExtResource("2_e1jsn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2013458760]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=25712220]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=220798833]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=349343230]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MAIN MENU"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
