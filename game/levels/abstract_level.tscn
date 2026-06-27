@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://hdnty666fw1h"]
+
+[ext_resource type="Script" uid="uid://wm4pbk5w5ats" path="res://game/levels/abstract_level.gd" id="1_o2mui"]
+[ext_resource type="PackedScene" uid="uid://ts4dy8xmtot8" path="res://game/entities/player/player.tscn" id="2_r0ht6"]
+[ext_resource type="PackedScene" uid="uid://0e3xvmn36j5b" path="res://game/menu/pause_menu.tscn" id="3_fnnmn"]
+
+[node name="AbstractLevel" type="Node2D" unique_id=1001045799]
+script = ExtResource("1_o2mui")
+
+[node name="Player" parent="." unique_id=763780926 instance=ExtResource("2_r0ht6")]
+
+[node name="Menus" type="Control" parent="." unique_id=1464185162]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="PauseMenu" parent="Menus" unique_id=1815975678 instance=ExtResource("3_fnnmn")]
+unique_name_in_owner = true
+process_mode = 2
+layout_mode = 1
