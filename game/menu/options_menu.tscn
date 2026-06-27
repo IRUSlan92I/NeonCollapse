@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://dnxfvop505syi"]
+
+[ext_resource type="Theme" uid="uid://bqj884yfvhhft" path="res://game/themes/main_menu.tres" id="1_e2bp2"]
+[ext_resource type="Script" uid="uid://c6qaxjgpf8ydx" path="res://game/menu/options_menu.gd" id="1_lq2ks"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_j72d6"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_e2bp2"]
+events = [SubResource("InputEventAction_j72d6")]
+
+[node name="OptionsMenu" type="Control" unique_id=1463826396]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_e2bp2")
+script = ExtResource("1_lq2ks")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2127037660]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1647231354]
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1356622174]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1820060227]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FullscreenCheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=129623184]
+unique_name_in_owner = true
+layout_mode = 2
+text = "FULLSCREEN"
+
+[node name="WindowFactorLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1054219556]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WindowFactorContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=2006592987]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ButtonX1" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/WindowFactorContainer" unique_id=978982542]
+layout_mode = 2
+toggle_mode = true
+text = "X1"
+metadata/window_factor = 1
+
+[node name="ButtonX2" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/WindowFactorContainer" unique_id=422646167]
+layout_mode = 2
+toggle_mode = true
+text = "X2"
+metadata/window_factor = 2
+
+[node name="ButtonX3" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/WindowFactorContainer" unique_id=317316950]
+layout_mode = 2
+toggle_mode = true
+text = "X3"
+metadata/window_factor = 3
+
+[node name="ButtonX4" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/WindowFactorContainer" unique_id=1096197974]
+layout_mode = 2
+toggle_mode = true
+text = "X4"
+metadata/window_factor = 4
+
+[node name="ButtonX5" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/WindowFactorContainer" unique_id=1598256151]
+layout_mode = 2
+toggle_mode = true
+text = "X5"
+metadata/window_factor = 5
+
+[node name="MasterLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1502062154]
+layout_mode = 2
+text = "MASTER"
+
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1600615574]
+unique_name_in_owner = true
+layout_mode = 2
+step = 10.0
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="UILabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1039303416]
+layout_mode = 2
+text = "UI"
+
+[node name="UISlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=2094741924]
+unique_name_in_owner = true
+layout_mode = 2
+step = 10.0
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=122025284]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=630139889]
+unique_name_in_owner = true
+layout_mode = 2
+step = 10.0
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=2133353313]
+layout_mode = 2
+text = "MUSIC"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=537100873]
+unique_name_in_owner = true
+layout_mode = 2
+step = 10.0
+tick_count = 11
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=676353768]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=131108983]
+unique_name_in_owner = true
+layout_mode = 2
+shortcut = SubResource("Shortcut_e2bp2")
+text = "BACK"
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/FullscreenCheckButton" to="." method="_on_fullscreen_check_button_toggled"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="." method="_on_master_volume_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/UISlider" to="." method="_on_ui_volume_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_volume_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_volume_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

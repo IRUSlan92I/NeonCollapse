@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://bqj884yfvhhft"]
+
+[ext_resource type="FontFile" uid="uid://cqhh5hrj2rr0y" path="res://fonts/Mx437_DOS-V_re_PRC16.ttf" id="1_sfg7l"]
+
+[resource]
+default_font = ExtResource("1_sfg7l")
+default_font_size = 32
+MarginContainer/constants/margin_bottom = 25
+MarginContainer/constants/margin_left = 25
+MarginContainer/constants/margin_right = 25
+MarginContainer/constants/margin_top = 25
