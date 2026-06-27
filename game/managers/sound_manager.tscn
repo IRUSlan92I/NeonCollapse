@@ -8,6 +8,10 @@
 [node name="SoundManager" type="Node" unique_id=1576371552]
 process_mode = 3
 script = ExtResource("1_cg0sy")
+pitch_ui_min = 0.9500000000000001
+pitch_ui_max = 1.05
+pitch_sfx_min = 0.9500000000000001
+pitch_sfx_max = 1.05
 player_count_ui = 8
 player_count_sfx = 32
 ui_stream_accept = ExtResource("2_ge1il")
