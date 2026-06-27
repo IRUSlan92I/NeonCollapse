@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dqkewlpol05ap"]
+
+[ext_resource type="PackedScene" uid="uid://cxdirjlkyccs4" path="res://game/state_machine/abstract_state.tscn" id="1_7h8jh"]
+[ext_resource type="Script" uid="uid://dj8pkf8aq2x73" path="res://game/entities/player/abstract_player_state.gd" id="2_inbmw"]
+
+[node name="AbstractPlayerState" unique_id=836520368 instance=ExtResource("1_7h8jh")]
+script = ExtResource("2_inbmw")

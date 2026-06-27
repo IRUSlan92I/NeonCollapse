@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://ts4dy8xmtot8"]
 
 [ext_resource type="Script" uid="uid://bm48h30pkhdkv" path="res://game/entities/player/player.gd" id="1_1a4jd"]
+[ext_resource type="PackedScene" uid="uid://blxgfix54dxq3" path="res://game/state_machine/state_machine.tscn" id="2_x4rrl"]
+[ext_resource type="PackedScene" uid="uid://btu3hxif2xpvu" path="res://game/entities/player/states/idle_state.tscn" id="3_cjfdk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
 
@@ -9,3 +11,33 @@ script = ExtResource("1_1a4jd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=379935685]
 shape = SubResource("CapsuleShape2D_bhunq")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1654451713]
+
+[node name="StateMachine" parent="." unique_id=560273456 node_paths=PackedStringArray("initial_state") instance=ExtResource("2_x4rrl")]
+initial_state = NodePath("IdleState")
+
+[node name="IdleState" parent="StateMachine" unique_id=836520368 node_paths=PackedStringArray("player") instance=ExtResource("3_cjfdk")]
+player = NodePath("../..")
+
+[node name="JumpBufferTimer" type="Timer" parent="." unique_id=1845152635]
+process_callback = 0
+wait_time = 0.05
+one_shot = true
+
+[node name="CoyoteTimeTimer" type="Timer" parent="." unique_id=867376979]
+process_callback = 0
+wait_time = 0.05
+one_shot = true
+
+[node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1208896947]
+process_callback = 0
+wait_time = 0.75
+
+[node name="AttackSlowdownTimer" type="Timer" parent="." unique_id=1617625946]
+process_callback = 0
+one_shot = true
+
+[node name="SlideDelayTimer" type="Timer" parent="." unique_id=1746851787]
+process_callback = 0
+wait_time = 0.75

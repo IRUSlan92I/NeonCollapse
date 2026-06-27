@@ -13,6 +13,7 @@ config_version=5
 config/name="NeonCollapse"
 run/main_scene="uid://cl0h2acqcq5wq"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+run/max_fps=240
 config/icon="res://icon.svg"
 
 [audio]
@@ -115,6 +116,7 @@ pause={
 
 [physics]
 
+common/physics_ticks_per_second=120
 3d/physics_engine="Jolt Physics"
 
 [rendering]

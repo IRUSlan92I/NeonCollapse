@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cuig5x5fd47hs"]
+
+[ext_resource type="PackedScene" uid="uid://hdnty666fw1h" path="res://game/levels/abstract_level.tscn" id="1_46m3m"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bhunq"]
+
+[node name="TestLevel" unique_id=1001045799 instance=ExtResource("1_46m3m")]
+
+[node name="Player" parent="." index="0" unique_id=763780926]
+position = Vector2(0, -30)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=1113871341]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=2097094532]
+shape = SubResource("WorldBoundaryShape2D_bhunq")
+
+[node name="Menus" parent="." index="2" unique_id=1464185162]
+offset_left = -320.0
+offset_top = -210.0
+offset_right = 320.0
+offset_bottom = 150.0
