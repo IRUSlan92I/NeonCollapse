@@ -34,10 +34,6 @@ one_shot = true
 process_callback = 0
 wait_time = 0.75
 
-[node name="AttackSlowdownTimer" type="Timer" parent="." unique_id=1617625946]
-process_callback = 0
-one_shot = true
-
 [node name="SlideDelayTimer" type="Timer" parent="." unique_id=1746851787]
 process_callback = 0
 wait_time = 0.75

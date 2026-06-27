@@ -17,14 +17,23 @@ extends CharacterBody2D
 @export_range(0.0, 2.0) var gravity_factor_slide := 0.1
 @export_range(0.0, 1.0) var gravity_factor_passive_jump := 0.5
 
+@export_group("Attack slow down", "slow_down")
+@export_range(0.0, 1000.0) var slow_down_attack := 0.05
+@export_range(0.0, 1000.0) var slow_down_sustain := 0.70
+@export_range(0.0, 1000.0) var slow_down_release := 0.25
+
+
+var _slow_down_tween: Tween
+
 
 @onready var state_machine : StateMachine = $StateMachine
 
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_time_timer : Timer = $CoyoteTimeTimer
 @onready var attack_cooldown_timer : Timer = $AttackCooldownTimer
-@onready var attack_slowdown_timer : Timer = $AttackSlowdownTimer
 @onready var slide_delay_timer : Timer = $SlideDelayTimer
+
+@onready var _max_speed := movement_max_speed_normal
 
 
 func _ready() -> void:
@@ -57,13 +66,7 @@ func _physics_process(delta: float) -> void:
 		
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
-		var max_speed : float
-		if attack_slowdown_timer.is_stopped():
-			max_speed = movement_max_speed_normal
-		else:
-			max_speed = movement_max_speed_after_attack
-		
-		velocity.x = move_toward(velocity.x, direction * max_speed, movement_acceleration * delta)
+		velocity.x = move_toward(velocity.x, direction * _max_speed, movement_acceleration * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, movement_acceleration * delta)
 	
@@ -72,6 +75,13 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack") and attack_cooldown_timer.is_stopped():
-		attack_cooldown_timer.start()
-		print("Attack")
+	if event.is_action_pressed("attack"):
+		if not _slow_down_tween or not _slow_down_tween.is_running():
+			print("Attack")
+			_slow_down_tween = create_tween()
+			_slow_down_tween.tween_property(self, "_max_speed", \
+				movement_max_speed_after_attack, slow_down_attack)
+			_slow_down_tween.tween_property(self, "_max_speed", \
+				movement_max_speed_after_attack, slow_down_sustain)
+			_slow_down_tween.tween_property(self, "_max_speed", \
+				movement_max_speed_normal, slow_down_release)
