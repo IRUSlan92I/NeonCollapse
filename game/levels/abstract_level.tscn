@@ -10,6 +10,7 @@ script = ExtResource("1_o2mui")
 [node name="Player" parent="." unique_id=763780926 instance=ExtResource("2_r0ht6")]
 
 [node name="Menus" type="Control" parent="." unique_id=1464185162]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0

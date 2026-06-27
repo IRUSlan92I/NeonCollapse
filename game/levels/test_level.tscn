@@ -4,6 +4,9 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bhunq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(20, 2000)
+
 [node name="TestLevel" unique_id=1001045799 instance=ExtResource("1_46m3m")]
 
 [node name="Player" parent="." index="0" unique_id=763780926]
@@ -11,8 +14,16 @@ position = Vector2(0, -30)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="1" unique_id=1113871341]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=2097094532]
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=2097094532]
 shape = SubResource("WorldBoundaryShape2D_bhunq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="1" unique_id=304230873]
+position = Vector2(-200, -1000)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" index="2" unique_id=771125145]
+position = Vector2(0, -1100)
+shape = SubResource("RectangleShape2D_bhunq")
 
 [node name="Menus" parent="." index="2" unique_id=1464185162]
 offset_left = -320.0

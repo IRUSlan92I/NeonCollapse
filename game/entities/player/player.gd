@@ -25,6 +25,8 @@ extends CharacterBody2D
 
 var _slow_down_tween: Tween
 
+var _wall_normal: = 0.0
+
 
 @onready var state_machine : StateMachine = $StateMachine
 
@@ -47,13 +49,17 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0.0
 	
 	if not is_on_floor():
-		var gravity_factor := gravity_factor_jump if velocity.y < 0.0 else gravity_factor_fall
-		
-		if velocity.y < 0.0 and not Input.is_action_pressed("jump"):
-			velocity.y *= gravity_factor_passive_jump
-		
-		velocity += get_gravity() * gravity_factor * delta
-		velocity.y = clampf(velocity.y, -jump_max_fall_speed, jump_max_fall_speed)
+		if is_on_wall():
+			_wall_normal = signf(velocity.x)
+			print("On wall! ", velocity.x, " ", Engine.get_frames_drawn())
+		else:
+			var gravity_factor := gravity_factor_jump if velocity.y < 0.0 else gravity_factor_fall
+			
+			if velocity.y < 0.0 and not Input.is_action_pressed("jump"):
+				velocity.y *= gravity_factor_passive_jump
+			
+			velocity += get_gravity() * gravity_factor * delta
+			velocity.y = clampf(velocity.y, -jump_max_fall_speed, jump_max_fall_speed)
 	
 		
 	if Input.is_action_just_pressed("jump"):

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ba262w3ebkyo1"]
+
+[ext_resource type="Script" uid="uid://ca6ix4nt5uxp3" path="res://game/managers/hitstop_manager.gd" id="1_n7h4l"]
+
+[node name="HitstopManager" type="Node" unique_id=669581391]
+script = ExtResource("1_n7h4l")

@@ -7,6 +7,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	$Menus.show()
 	pause_menu.hide()
 	
 	#TODO Add gameplay music
