@@ -114,16 +114,16 @@ region = Rect2(160, 96, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
 animations = [{
 "frames": [{
-"duration": 10.0,
+"duration": 30.0,
 "texture": SubResource("AtlasTexture_cjfdk")
 }, {
-"duration": 3.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_p5qu6")
 }, {
-"duration": 10.0,
+"duration": 30.0,
 "texture": SubResource("AtlasTexture_cjfdk")
 }, {
-"duration": 3.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_heu0c")
 }],
 "loop": 1,
@@ -508,7 +508,7 @@ shape = SubResource("CapsuleShape2D_bhunq")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=2025942250]
 sprite_frames = SubResource("SpriteFrames_bhunq")
-animation = &"jump_right"
+animation = &"idle"
 
 [node name="BladeSprite" type="AnimatedSprite2D" parent="." unique_id=1561250707]
 position = Vector2(0, 8)

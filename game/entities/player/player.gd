@@ -53,7 +53,8 @@ func _ready() -> void:
 	for sprite : AnimatedSprite2D in [ attack_left_sprite, attack_right_sprite ]:
 		var lambda := func() -> void:
 			sprite.hide()
-			blade_sprite.show()
+			if not is_zero_approx(velocity.x):
+				blade_sprite.show()
 		sprite.animation_finished.connect(lambda)
 		sprite.hide()
 
