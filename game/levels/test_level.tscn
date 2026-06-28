@@ -25,6 +25,10 @@ shape = SubResource("RectangleShape2D_bhunq")
 position = Vector2(0, -1100)
 shape = SubResource("RectangleShape2D_bhunq")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" index="3" unique_id=558475574]
+position = Vector2(200, -1000)
+shape = SubResource("RectangleShape2D_bhunq")
+
 [node name="Menus" parent="." index="2" unique_id=1464185162]
 offset_left = -320.0
 offset_top = -210.0

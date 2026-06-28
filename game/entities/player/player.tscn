@@ -22,18 +22,24 @@ player = NodePath("../..")
 
 [node name="JumpBufferTimer" type="Timer" parent="." unique_id=1845152635]
 process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="FloorCoyoteTimeTimer" type="Timer" parent="." unique_id=867376979]
+process_callback = 0
 wait_time = 0.05
 one_shot = true
 
-[node name="CoyoteTimeTimer" type="Timer" parent="." unique_id=867376979]
+[node name="WallCoyoteTimeTimer" type="Timer" parent="." unique_id=548389084]
 process_callback = 0
-wait_time = 0.05
+wait_time = 0.1
+one_shot = true
+
+[node name="WallAttachTimer" type="Timer" parent="." unique_id=1472311359]
+process_callback = 0
+wait_time = 0.5
 one_shot = true
 
 [node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1208896947]
-process_callback = 0
-wait_time = 0.75
-
-[node name="SlideDelayTimer" type="Timer" parent="." unique_id=1746851787]
 process_callback = 0
 wait_time = 0.75
