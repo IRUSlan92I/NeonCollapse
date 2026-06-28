@@ -29,6 +29,11 @@ var _slow_down_tween: Tween
 var _last_wall_normal: = 0.0
 
 
+@onready var player_sprite : AnimatedSprite2D = $PlayerSprite
+@onready var blade_sprite : AnimatedSprite2D = $BladeSprite
+@onready var attack_left_sprite : AnimatedSprite2D = $AttackLeftSprite
+@onready var attack_right_sprite : AnimatedSprite2D = $AttackRightSprite
+
 @onready var state_machine : StateMachine = $StateMachine
 
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer

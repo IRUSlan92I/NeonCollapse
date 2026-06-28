@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://35g5buv0k1s6"]
+
+[ext_resource type="PackedScene" uid="uid://dqkewlpol05ap" path="res://game/entities/player/abstract_player_state.tscn" id="1_vmphp"]
+[ext_resource type="Script" uid="uid://ddait0epupp37" path="res://game/entities/player/states/running_state.gd" id="2_va6ao"]
+
+[node name="RunningState" unique_id=836520368 instance=ExtResource("1_vmphp")]
+script = ExtResource("2_va6ao")
+direction = 0

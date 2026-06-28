@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bboaskqiwnbsb"]
+
+[ext_resource type="PackedScene" uid="uid://dqkewlpol05ap" path="res://game/entities/player/abstract_player_state.tscn" id="1_8pnwa"]
+[ext_resource type="Script" uid="uid://ddrglfm23s65k" path="res://game/entities/player/states/jump_state.gd" id="2_y8wem"]
+
+[node name="JumpState" unique_id=836520368 instance=ExtResource("1_8pnwa")]
+script = ExtResource("2_y8wem")
+direction = 0
