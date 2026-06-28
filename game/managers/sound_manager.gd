@@ -24,6 +24,10 @@ const MUSIC_BUS = "Music"
 @export var ui_stream_select : AudioStream
 
 @export_group("SFX Streams", "sfx_stream")
+@export var sfx_stream_jump : AudioStream
+@export var sfx_stream_land : AudioStream
+@export var sfx_stream_swing : AudioStream
+@export var sfx_stream_wall_jump : AudioStream
 
 
 @export_group("Music Streams", "music_stream")

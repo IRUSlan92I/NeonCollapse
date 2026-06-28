@@ -4,16 +4,24 @@
 [ext_resource type="AudioStream" uid="uid://cwmibbhy2fpq2" path="res://sound/ui/accept.wav" id="2_ge1il"]
 [ext_resource type="AudioStream" uid="uid://d2tsomsqmhf0h" path="res://sound/ui/decline.wav" id="3_agyxs"]
 [ext_resource type="AudioStream" uid="uid://cfb2adf5hft7b" path="res://sound/ui/select.wav" id="4_0i6kl"]
+[ext_resource type="AudioStream" uid="uid://bcc0textvn2lx" path="res://sound/sfx/jump.wav" id="5_fpnh3"]
+[ext_resource type="AudioStream" uid="uid://b6xkhskx5gi0w" path="res://sound/sfx/land.wav" id="6_22ptj"]
+[ext_resource type="AudioStream" uid="uid://bj6ausg5hyuyg" path="res://sound/sfx/swing.wav" id="7_ab171"]
+[ext_resource type="AudioStream" uid="uid://33unutlwsika" path="res://sound/sfx/wall_jump.wav" id="8_22ptj"]
 
 [node name="SoundManager" type="Node" unique_id=1576371552]
 process_mode = 3
 script = ExtResource("1_cg0sy")
-pitch_ui_min = 0.9500000000000001
+pitch_ui_min = 0.95
 pitch_ui_max = 1.05
-pitch_sfx_min = 0.9500000000000001
+pitch_sfx_min = 0.95
 pitch_sfx_max = 1.05
 player_count_ui = 8
 player_count_sfx = 32
 ui_stream_accept = ExtResource("2_ge1il")
 ui_stream_decline = ExtResource("3_agyxs")
 ui_stream_select = ExtResource("4_0i6kl")
+sfx_stream_jump = ExtResource("5_fpnh3")
+sfx_stream_land = ExtResource("6_22ptj")
+sfx_stream_swing = ExtResource("7_ab171")
+sfx_stream_wall_jump = ExtResource("8_22ptj")

@@ -2,10 +2,10 @@ class_name Player
 extends CharacterBody2D
 
 
-@export_group("Movement", "movement")
-@export_range(0.0, 1000.0) var movement_max_speed_normal := 350
-@export_range(0.0, 1000.0) var movement_max_speed_after_attack := 250
-@export_range(0.0, 1000.0) var movement_acceleration := 1000.0
+@export_group("Movement", "move")
+@export_range(0.0, 1000.0) var move_max_speed_normal := 350
+@export_range(0.0, 1000.0) var move_max_speed_slowed := 250
+@export_range(0.0, 1000.0) var move_acceleration := 1000.0
 
 @export_group("Jump", "jump")
 @export_range(0.0, 1000.0) var jump_max_fall_speed := 1000
@@ -44,11 +44,18 @@ var _last_wall_normal: = 0.0
 @onready var wall_attach_timer : Timer = $WallAttachTimer
 @onready var attack_cooldown_timer : Timer = $AttackCooldownTimer
 
-@onready var _max_speed := movement_max_speed_normal
+@onready var _max_speed := move_max_speed_normal
 
 
 func _ready() -> void:
 	state_machine.init()
+	
+	for sprite : AnimatedSprite2D in [ attack_left_sprite, attack_right_sprite ]:
+		var lambda := func() -> void:
+			sprite.hide()
+			blade_sprite.show()
+		sprite.animation_finished.connect(lambda)
+		sprite.hide()
 
 
 func _physics_process(delta: float) -> void:
@@ -87,18 +94,20 @@ func _physics_process(delta: float) -> void:
 			velocity.y = -jump_floor_velocity
 			jump_buffer_timer.stop()
 			floor_coyote_time_timer.stop()
+			SoundManager.play_sfx_stream(SoundManager.sfx_stream_jump, global_position)
 		elif not wall_coyote_time_timer.is_stopped():
 			velocity = -jump_wall_velocity
 			velocity.x *= -_last_wall_normal
 			jump_buffer_timer.stop()
 			wall_coyote_time_timer.stop()
+			SoundManager.play_sfx_stream(SoundManager.sfx_stream_wall_jump, global_position)
 	
 	
 	if input_direction:
 		var input_velocity := input_direction * _max_speed
-		velocity.x = move_toward(velocity.x, input_velocity, movement_acceleration * delta)
+		velocity.x = move_toward(velocity.x, input_velocity, move_acceleration * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, movement_acceleration * delta)
+		velocity.x = move_toward(velocity.x, 0, move_acceleration * delta)
 	
 	move_and_slide()
 	state_machine.physics_process(delta)
@@ -107,11 +116,20 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		if not _slow_down_tween or not _slow_down_tween.is_running():
-			print("Attack")
-			_slow_down_tween = create_tween()
-			_slow_down_tween.tween_property(self, "_max_speed", \
-				movement_max_speed_after_attack, slow_down_attack)
-			_slow_down_tween.tween_property(self, "_max_speed", \
-				movement_max_speed_after_attack, slow_down_sustain)
-			_slow_down_tween.tween_property(self, "_max_speed", \
-				movement_max_speed_normal, slow_down_release)
+			if not is_on_floor() or not is_zero_approx(velocity.x):
+				_attack()
+
+
+func _attack() -> void:
+	var sprite := attack_left_sprite if velocity.x <= 0.0 else attack_right_sprite
+	sprite.show()
+	blade_sprite.hide()
+	sprite.play("attack")
+	SoundManager.play_sfx_stream(SoundManager.sfx_stream_swing, global_position)
+	
+	_slow_down_tween = create_tween()
+	_slow_down_tween.tween_property(self, "_max_speed", move_max_speed_slowed, slow_down_attack)
+	_slow_down_tween.tween_property(self, "_max_speed", move_max_speed_slowed, slow_down_sustain)
+	_slow_down_tween.tween_property(self, "_max_speed", move_max_speed_normal, slow_down_release)
+	_slow_down_tween.tween_property(sprite, "visible", false, 0.0)
+	

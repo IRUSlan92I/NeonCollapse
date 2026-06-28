@@ -44,7 +44,7 @@ func physics_process(_delta: float) -> void:
 						switch_state.emit(another_direction)
 	else:
 		if is_zero_approx(player.velocity.x):
-			switch_state.emit([jump, jump_another_direction].pick_random())
+			switch_state.emit(jump if direction == Direction.Left else jump_another_direction)
 		else:
 			match direction:
 				Direction.Left:

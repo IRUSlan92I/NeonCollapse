@@ -21,7 +21,7 @@ func physics_process(_delta: float) -> void:
 			switch_state.emit(running_right)
 	else:
 		if is_zero_approx(player.velocity.x):
-			switch_state.emit([jump_left, jump_right].pick_random())
+			switch_state.emit(jump_left)
 		elif player.velocity.x < 0.0:
 			switch_state.emit(jump_left)
 		elif player.velocity.x > 0.0:

@@ -32,6 +32,7 @@ func exit() -> void:
 
 func physics_process(_delta: float) -> void:
 	if player.is_on_floor():
+		SoundManager.play_sfx_stream(SoundManager.sfx_stream_land, player.global_position)
 		if is_zero_approx(player.velocity.x):
 			switch_state.emit(idle)
 		else:
