@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ba5sknbijujl2"]
+
+[ext_resource type="PackedScene" uid="uid://dqkewlpol05ap" path="res://game/entities/player/abstract_player_state.tscn" id="1_vvc6s"]
+[ext_resource type="Script" uid="uid://bghqpnc7vmmlh" path="res://game/entities/player/states/wall_state.gd" id="2_kmlwa"]
+
+[node name="WallState" unique_id=836520368 instance=ExtResource("1_vvc6s")]
+script = ExtResource("2_kmlwa")

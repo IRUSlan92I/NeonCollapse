@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btu3hxif2xpvu" path="res://game/entities/player/states/idle_state.tscn" id="3_cjfdk"]
 [ext_resource type="PackedScene" uid="uid://35g5buv0k1s6" path="res://game/entities/player/states/running_state.tscn" id="5_oic1i"]
 [ext_resource type="PackedScene" uid="uid://bboaskqiwnbsb" path="res://game/entities/player/states/jump_state.tscn" id="6_v0nmi"]
+[ext_resource type="PackedScene" uid="uid://ba5sknbijujl2" path="res://game/entities/player/states/wall_state.tscn" id="7_dhej3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
 radius = 4.5
@@ -111,6 +112,14 @@ region = Rect2(128, 96, 32, 32)
 atlas = ExtResource("2_cjfdk")
 region = Rect2(160, 96, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_66tqw"]
+atlas = ExtResource("2_cjfdk")
+region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4muq"]
+atlas = ExtResource("2_cjfdk")
+region = Rect2(0, 256, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
 animations = [{
 "frames": [{
@@ -215,6 +224,22 @@ animations = [{
 "loop": 1,
 "name": &"run_right",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66tqw")
+}],
+"loop": 1,
+"name": &"wall_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4muq")
+}],
+"loop": 1,
+"name": &"wall_right",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mee4"]
@@ -499,6 +524,23 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_qr0ht"]
+interpolation_mode = 1
+colors = PackedColorArray(0.99215686, 0.99607843, 0.5372549, 1, 1, 0.7529412, 0.46666667, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_riqys"]
+gradient = SubResource("Gradient_qr0ht")
+width = 2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bhunq"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(1, -1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_riqys")
+
 [node name="Player" type="CharacterBody2D" unique_id=763780926]
 script = ExtResource("1_1a4jd")
 
@@ -508,7 +550,7 @@ shape = SubResource("CapsuleShape2D_bhunq")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=2025942250]
 sprite_frames = SubResource("SpriteFrames_bhunq")
-animation = &"idle"
+animation = &"wall_right"
 
 [node name="BladeSprite" type="AnimatedSprite2D" parent="." unique_id=1561250707]
 position = Vector2(0, 8)
@@ -552,19 +594,35 @@ jump = NodePath("../JumpRightState")
 jump_another_direction = NodePath("../JumpLeftState")
 player = NodePath("../..")
 
-[node name="JumpLeftState" parent="StateMachine" unique_id=914600878 node_paths=PackedStringArray("idle", "another_direction", "run", "run_another_direction", "player") instance=ExtResource("6_v0nmi")]
+[node name="JumpLeftState" parent="StateMachine" unique_id=914600878 node_paths=PackedStringArray("idle", "another_direction", "run", "run_another_direction", "wall", "player") instance=ExtResource("6_v0nmi")]
 idle = NodePath("../IdleState")
 another_direction = NodePath("../JumpRightState")
 run = NodePath("../RunningLeftState")
 run_another_direction = NodePath("../JumpRightState")
+wall = NodePath("../WallRightState")
 player = NodePath("../..")
 
-[node name="JumpRightState" parent="StateMachine" unique_id=470310632 node_paths=PackedStringArray("idle", "another_direction", "run", "run_another_direction", "player") instance=ExtResource("6_v0nmi")]
+[node name="JumpRightState" parent="StateMachine" unique_id=470310632 node_paths=PackedStringArray("idle", "another_direction", "run", "run_another_direction", "wall", "player") instance=ExtResource("6_v0nmi")]
 direction = 1
 idle = NodePath("../IdleState")
 another_direction = NodePath("../JumpLeftState")
 run = NodePath("../RunningRightState")
 run_another_direction = NodePath("../RunningLeftState")
+wall = NodePath("../WallLeftState")
+player = NodePath("../..")
+
+[node name="WallLeftState" parent="StateMachine" unique_id=1609653446 node_paths=PackedStringArray("idle", "jump", "particles", "player") instance=ExtResource("7_dhej3")]
+direction = 0
+idle = NodePath("../IdleState")
+jump = NodePath("../JumpLeftState")
+particles = NodePath("../../WallRightParticles")
+player = NodePath("../..")
+
+[node name="WallRightState" parent="StateMachine" unique_id=1873321719 node_paths=PackedStringArray("idle", "jump", "particles", "player") instance=ExtResource("7_dhej3")]
+direction = 1
+idle = NodePath("../IdleState")
+jump = NodePath("../JumpRightState")
+particles = NodePath("../../WallLeftParticles")
 player = NodePath("../..")
 
 [node name="JumpBufferTimer" type="Timer" parent="." unique_id=1845152635]
@@ -590,3 +648,18 @@ one_shot = true
 [node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1208896947]
 process_callback = 0
 wait_time = 0.75
+
+[node name="WallLeftParticles" type="GPUParticles2D" parent="." unique_id=2009522894]
+position = Vector2(-4, 4)
+emitting = false
+amount = 32
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_bhunq")
+
+[node name="WallRightParticles" type="GPUParticles2D" parent="." unique_id=1737496790]
+position = Vector2(5, 4)
+rotation = -1.5707964
+emitting = false
+amount = 32
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_bhunq")

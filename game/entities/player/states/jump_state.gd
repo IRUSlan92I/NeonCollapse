@@ -13,6 +13,7 @@ enum Direction {
 @export var another_direction : AbstractPlayerState
 @export var run : AbstractPlayerState
 @export var run_another_direction : AbstractPlayerState
+@export var wall : AbstractPlayerState
 
 
 func enter() -> void:
@@ -47,6 +48,8 @@ func physics_process(_delta: float) -> void:
 						switch_state.emit(run)
 					else:
 						switch_state.emit(run_another_direction)
+	elif player.is_on_wall():
+		switch_state.emit(wall)
 	else:
 		if not is_zero_approx(player.velocity.x):
 			match direction:
