@@ -99,10 +99,11 @@ text = "MASTER"
 [node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1600615574]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 step = 10.0
 tick_count = 11
 ticks_on_borders = true
-ticks_position = 2
+ticks_position = 3
 
 [node name="UILabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1039303416]
 layout_mode = 2
@@ -111,10 +112,11 @@ text = "UI"
 [node name="UISlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=2094741924]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 step = 10.0
 tick_count = 11
 ticks_on_borders = true
-ticks_position = 2
+ticks_position = 3
 
 [node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=122025284]
 layout_mode = 2
@@ -123,10 +125,11 @@ text = "SFX"
 [node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=630139889]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 step = 10.0
 tick_count = 11
 ticks_on_borders = true
-ticks_position = 2
+ticks_position = 3
 
 [node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=2133353313]
 layout_mode = 2
@@ -135,10 +138,11 @@ text = "MUSIC"
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=537100873]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 step = 10.0
 tick_count = 11
 ticks_on_borders = true
-ticks_position = 2
+ticks_position = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=676353768]
 layout_mode = 2
@@ -149,6 +153,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 shortcut = SubResource("Shortcut_e2bp2")
+shortcut_in_tooltip = false
 text = "BACK"
 
 [connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/FullscreenCheckButton" to="." method="_on_fullscreen_check_button_toggled"]
