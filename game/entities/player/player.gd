@@ -2,6 +2,13 @@ class_name Player
 extends CharacterBody2D
 
 
+signal health_changed(value: float)
+signal dead()
+
+
+const MAX_HEALTH = 100.0
+
+
 @export_group("Movement", "move")
 @export_range(0.0, 1000.0) var move_max_speed_normal := 350
 @export_range(0.0, 1000.0) var move_max_speed_slowed := 250
@@ -27,6 +34,11 @@ extends CharacterBody2D
 var _slow_down_tween: Tween
 
 var _last_wall_normal: = 0.0
+
+var _current_health: = MAX_HEALTH:
+	set(value):
+		_current_health = value
+		health_changed.emit(_current_health)
 
 
 @onready var player_sprite : AnimatedSprite2D = $PlayerSprite
@@ -124,6 +136,13 @@ func _input(event: InputEvent) -> void:
 		if not _slow_down_tween or not _slow_down_tween.is_running():
 			if not is_on_wall() and not is_on_floor() or not is_zero_approx(velocity.x):
 				_attack()
+
+
+func deal_damage(value: float) -> void:
+	_current_health -= value
+	health_changed.emit(_current_health)
+	if _current_health < 0.0 or is_zero_approx(_current_health):
+		dead.emit()
 
 
 func _attack() -> void:
