@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://wm4pbk5w5ats" path="res://game/levels/abstract_level.gd" id="1_o2mui"]
 [ext_resource type="PackedScene" uid="uid://ts4dy8xmtot8" path="res://game/entities/player/player.tscn" id="2_r0ht6"]
 [ext_resource type="PackedScene" uid="uid://0e3xvmn36j5b" path="res://game/menu/pause_menu.tscn" id="3_fnnmn"]
+[ext_resource type="Shader" uid="uid://brudtlwas6x66" path="res://game/shaders/glitch.gdshader" id="4_6b8cu"]
 [ext_resource type="Texture2D" uid="uid://b8rm1kxgci4l1" path="res://images/level/beams.png" id="4_pi5fd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b8cu"]
@@ -1169,6 +1170,12 @@ terrain_set_0/terrain_0/name = "Beams"
 terrain_set_0/terrain_0/color = Color(0.64282656, 0, 0.1545574, 1)
 sources/0 = SubResource("TileSetAtlasSource_6b8cu")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yeikn"]
+shader = ExtResource("4_6b8cu")
+shader_parameter/corruption_x = 0.0
+shader_parameter/edge_width = 50.0
+shader_parameter/screen_to_world = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+
 [node name="AbstractLevel" type="Node2D" unique_id=1001045799]
 script = ExtResource("1_o2mui")
 
@@ -1177,8 +1184,14 @@ script = ExtResource("1_o2mui")
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=502099522]
 tile_set = SubResource("TileSet_71ysb")
 
-[node name="Menus" type="CanvasLayer" parent="." unique_id=1125559156]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1125559156]
 
-[node name="PauseMenu" parent="Menus" unique_id=1815975678 instance=ExtResource("3_fnnmn")]
+[node name="LevelColorRect" type="ColorRect" parent="CanvasLayer" unique_id=739757562]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_yeikn")
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1815975678 instance=ExtResource("3_fnnmn")]
 unique_name_in_owner = true
 process_mode = 2

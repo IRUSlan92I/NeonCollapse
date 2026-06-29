@@ -569,6 +569,9 @@ sprite_frames = SubResource("SpriteFrames_i4f54")
 animation = &"attack"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1654451713]
+limit_bottom = 0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="StateMachine" parent="." unique_id=560273456 node_paths=PackedStringArray("initial_state") instance=ExtResource("2_x4rrl")]
 initial_state = NodePath("IdleState")
