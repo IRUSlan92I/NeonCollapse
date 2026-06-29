@@ -14,6 +14,15 @@ grow_vertical = 2
 theme = ExtResource("1_5d27k")
 script = ExtResource("2_qnvmd")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=669952833]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19607843, 0.19215687, 0.23137255, 1)
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1180781679]
 layout_mode = 1
 anchors_preset = 15
@@ -24,7 +33,6 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=736037128]
 layout_mode = 2
-size_flags_horizontal = 4
 alignment = 1
 
 [node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1504018605]

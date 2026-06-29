@@ -76,6 +76,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if position.y > 0.0:
+		velocity.x = 0.0
+		move_and_slide()
+		return
+	
 	if is_on_floor():
 		floor_coyote_time_timer.start()
 		_last_wall_normal = 0.0
@@ -157,4 +162,3 @@ func _attack() -> void:
 	_slow_down_tween.tween_property(self, "_max_speed", move_max_speed_slowed, slow_down_sustain)
 	_slow_down_tween.tween_property(self, "_max_speed", move_max_speed_normal, slow_down_release)
 	_slow_down_tween.tween_property(sprite, "visible", false, 0.0)
-	

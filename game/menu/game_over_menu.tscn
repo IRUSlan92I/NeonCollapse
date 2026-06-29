@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cl7vqh8j2f5py"]
+
+[ext_resource type="Theme" uid="uid://bqj884yfvhhft" path="res://game/themes/main_menu.tres" id="1_htxfh"]
+[ext_resource type="Script" uid="uid://coqb1xl7lngo5" path="res://game/menu/game_over_menu.gd" id="2_m1ad0"]
+
+[node name="GameOverMenu" type="Control" unique_id=795145041]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_htxfh")
+script = ExtResource("2_m1ad0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=851679792]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19607843, 0.19215687, 0.23137255, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1675617760]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1046629699]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=641992920]
+layout_mode = 2
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="RetryButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=538467341]
+unique_name_in_owner = true
+layout_mode = 2
+text = "RETRY"
+
+[node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1995734325]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MAIN MENU"
+
+[node name="FocusTimer" type="Timer" parent="." unique_id=1727491464]
+one_shot = true
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="timeout" from="FocusTimer" to="." method="_on_focus_timer_timeout"]
