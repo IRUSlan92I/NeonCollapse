@@ -82,6 +82,7 @@ func _physics_process(delta: float) -> void:
 				wall_coyote_time_timer.start()
 				if sign(wall_normal) != sign(_last_wall_normal):
 					wall_attach_timer.start()
+					velocity.y = 0.0
 				_last_wall_normal = wall_normal
 				
 				if not Input.is_action_pressed("move_down") and velocity.y > 0.0:

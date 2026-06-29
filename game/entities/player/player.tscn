@@ -542,6 +542,7 @@ gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_riqys")
 
 [node name="Player" type="CharacterBody2D" unique_id=763780926]
+collision_layer = 2
 script = ExtResource("1_1a4jd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=379935685]
