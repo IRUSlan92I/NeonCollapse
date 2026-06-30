@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bcc0textvn2lx" path="res://sound/sfx/jump.wav" id="5_fpnh3"]
 [ext_resource type="AudioStream" uid="uid://b6q00ggpln0k5" path="res://sound/sfx/game_over.wav" id="6_6ll5c"]
 [ext_resource type="AudioStream" uid="uid://b6xkhskx5gi0w" path="res://sound/sfx/land.wav" id="6_22ptj"]
+[ext_resource type="AudioStream" uid="uid://dy2eudg02crrp" path="res://sound/sfx/destruction.wav" id="6_l4iry"]
 [ext_resource type="AudioStream" uid="uid://ellnbrkpn47a" path="res://sound/sfx/fall.wav" id="6_q7cyi"]
 [ext_resource type="AudioStream" uid="uid://bj6ausg5hyuyg" path="res://sound/sfx/swing.wav" id="7_ab171"]
 [ext_resource type="AudioStream" uid="uid://33unutlwsika" path="res://sound/sfx/wall_jump.wav" id="8_22ptj"]
@@ -25,6 +26,7 @@ ui_stream_accept = ExtResource("2_ge1il")
 ui_stream_decline = ExtResource("3_agyxs")
 ui_stream_select = ExtResource("4_0i6kl")
 sfx_stream_corruption = ExtResource("5_ab171")
+sfx_stream_destruction = ExtResource("6_l4iry")
 sfx_stream_fall = ExtResource("6_q7cyi")
 sfx_stream_game_over = ExtResource("6_6ll5c")
 sfx_stream_jump = ExtResource("5_fpnh3")

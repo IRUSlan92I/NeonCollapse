@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://0e3xvmn36j5b" path="res://game/menu/pause_menu.tscn" id="3_fnnmn"]
 [ext_resource type="Shader" uid="uid://brudtlwas6x66" path="res://game/shaders/glitch.gdshader" id="4_6b8cu"]
 [ext_resource type="Texture2D" uid="uid://b8rm1kxgci4l1" path="res://images/level/beams.png" id="4_pi5fd"]
+[ext_resource type="Shader" uid="uid://b6gy8a5et63t1" path="res://game/shaders/code.gdshader" id="5_8ydah"]
 [ext_resource type="PackedScene" uid="uid://b1x0tmnf7hx7h" path="res://game/hud/health_bar.tscn" id="6_x8k35"]
 [ext_resource type="PackedScene" uid="uid://cl7vqh8j2f5py" path="res://game/menu/game_over_menu.tscn" id="7_l0xih"]
+[ext_resource type="PackedScene" uid="uid://bafplnd2un011" path="res://game/effects/code.tscn" id="8_b7vts"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b8cu"]
 resource_name = "Beams"
@@ -1178,6 +1180,15 @@ shader_parameter/corruption_x = 0.0
 shader_parameter/edge_width = 50.0
 shader_parameter/screen_to_world = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b7vts"]
+shader = ExtResource("5_8ydah")
+shader_parameter/destruction_x = 0.0
+shader_parameter/edge_width = 50.0
+shader_parameter/screen_to_world = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bhunq"]
+viewport_path = NodePath("CanvasLayer/CodeViewport")
+
 [node name="AbstractLevel" type="Node2D" unique_id=1001045799]
 script = ExtResource("1_o2mui")
 
@@ -1194,6 +1205,17 @@ material = SubResource("ShaderMaterial_yeikn")
 offset_right = 640.0
 offset_bottom = 360.0
 
+[node name="CodeSprite" type="Sprite2D" parent="CanvasLayer" unique_id=1152584149]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_b7vts")
+position = Vector2(320, 180)
+texture = SubResource("ViewportTexture_bhunq")
+
+[node name="CodeViewport" type="SubViewport" parent="CanvasLayer" unique_id=1708983620]
+size = Vector2i(640, 360)
+
+[node name="Code" parent="CanvasLayer/CodeViewport" unique_id=946204992 instance=ExtResource("8_b7vts")]
+
 [node name="HealthBar" parent="CanvasLayer" unique_id=256637218 instance=ExtResource("6_x8k35")]
 unique_name_in_owner = true
 position = Vector2(51, 19)
@@ -1208,9 +1230,13 @@ process_mode = 2
 
 [node name="CorruptionTimer" type="Timer" parent="." unique_id=783383429]
 
+[node name="DestructionTimer" type="Timer" parent="." unique_id=431284916]
+one_shot = true
+
 [node name="DeathFallTimer" type="Timer" parent="." unique_id=519159888]
 one_shot = true
 
 [connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="timeout" from="CorruptionTimer" to="." method="_on_corruption_timer_timeout"]
+[connection signal="timeout" from="DestructionTimer" to="." method="_on_destruction_timer_timeout"]
 [connection signal="timeout" from="DeathFallTimer" to="." method="_on_death_fall_timer_timeout"]
