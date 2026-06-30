@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dxqq07mde0b4a"]
+
+[ext_resource type="Shader" uid="uid://c58hxwayyl757" path="res://game/shaders/danger.gdshader" id="1_3ra4u"]
+[ext_resource type="Script" uid="uid://bol2bemjm438o" path="res://game/entities/danger/danger.gd" id="2_oh0ew"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jttxq"]
+shader = ExtResource("1_3ra4u")
+shader_parameter/palette = PackedColorArray(0.36862746, 0.99215686, 0.5529412, 1, 0.23921569, 0.23137255, 0.37254903, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/palette_size = 2
+shader_parameter/chance = 0.3
+shader_parameter/edge_width = 10.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+resource_local_to_scene = true
+size = Vector2(2, 2)
+
+[node name="Danger" type="ColorRect" unique_id=554396375]
+material = SubResource("ShaderMaterial_jttxq")
+offset_right = 10.0
+offset_bottom = 10.0
+script = ExtResource("2_oh0ew")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1925024065]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1370118603]
+position = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=38832097]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

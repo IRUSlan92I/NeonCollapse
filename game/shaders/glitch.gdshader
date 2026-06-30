@@ -1,5 +1,7 @@
 shader_type canvas_item;
 
+#include "res://game/shaders/random_color.gdshaderinc"
+
 uniform float corruption_x = 0.0;
 uniform float edge_width = 50.0;
 uniform mat4 screen_to_world;
@@ -19,4 +21,7 @@ void fragment() {
 
 	COLOR.rgb = mix(bw, screen_color.rgb, t);
 	COLOR.a = screen_color.a;
+	
+	float chance = (1.0 - t)/8.0;
+	COLOR = random_color(COLOR, UV, chance);
 }

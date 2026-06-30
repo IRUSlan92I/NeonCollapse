@@ -1176,6 +1176,8 @@ sources/0 = SubResource("TileSetAtlasSource_6b8cu")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yeikn"]
 shader = ExtResource("4_6b8cu")
+shader_parameter/palette = PackedColorArray(0.36862746, 0.99215686, 0.5529412, 1, 0.23921569, 0.23137255, 0.37254903, 1, 0.23921569, 0.23137255, 0.37254903, 1, 0.23921569, 0.23137255, 0.37254903, 1, 0.23921569, 0.23137255, 0.37254903, 1, 0.23921569, 0.23137255, 0.37254903, 1, 0.23921569, 0.23137255, 0.37254903, 1, 0.23921569, 0.23137255, 0.37254903, 1)
+shader_parameter/palette_size = 8
 shader_parameter/corruption_x = 0.0
 shader_parameter/edge_width = 50.0
 shader_parameter/screen_to_world = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
@@ -1196,6 +1198,8 @@ script = ExtResource("1_o2mui")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=502099522]
 tile_set = SubResource("TileSet_71ysb")
+
+[node name="Dangers" type="Node2D" parent="." unique_id=608961351]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1125559156]
 
@@ -1229,6 +1233,7 @@ unique_name_in_owner = true
 process_mode = 2
 
 [node name="CorruptionTimer" type="Timer" parent="." unique_id=783383429]
+wait_time = 0.5
 
 [node name="DestructionTimer" type="Timer" parent="." unique_id=431284916]
 one_shot = true

@@ -12,5 +12,4 @@ void fragment() {
 	float dist = destruction_x - world_pos.x;
 
 	COLOR.a = smoothstep(-edge_width, edge_width, dist);
-	COLOR.a /= 2.0;
 }

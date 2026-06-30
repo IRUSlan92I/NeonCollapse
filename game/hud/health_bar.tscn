@@ -17,8 +17,8 @@ shader = ExtResource("3_vrpsd")
 shader_parameter/max_value = 0.0
 shader_parameter/current_value = 0.0
 shader_parameter/old_value = 0.0
-shader_parameter/health_color = Color(0.36862746, 0.99215686, 0.5529412, 1)
-shader_parameter/depletion_color = Color(0.32941177, 0.6509804, 0.41568628, 1)
+shader_parameter/health_color = Color(0.99215686, 0.36862746, 0.39215687, 1)
+shader_parameter/depletion_color = Color(0.654902, 0.29803923, 0.4745098, 1)
 shader_parameter/restoration_color = Color(1, 1, 1, 1)
 shader_parameter/background_color = Color(0, 0, 0, 0)
 
