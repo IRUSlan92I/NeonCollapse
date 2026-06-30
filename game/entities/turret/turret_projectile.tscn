@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://cfpukqa2am62o"]
+
+[ext_resource type="Script" uid="uid://boedoah7a3ew3" path="res://game/entities/turret/turret_projectile.gd" id="1_6obn6"]
+[ext_resource type="Texture2D" uid="uid://domd2gwquuiec" path="res://images/entities/turret_projectile.png" id="2_kmlbp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4stq6"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v20y"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xnl0"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk0n8"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koth7"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq137"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwuh1"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fv0s"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00ug4"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ssmj"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3avt"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sob1q"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g80b6"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7npid"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uqp5"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71cqq"]
+atlas = ExtResource("2_kmlbp")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4stq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v20y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xnl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk0n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koth7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq137")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwuh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fv0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00ug4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ssmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3avt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sob1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g80b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7npid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uqp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71cqq")
+}],
+"loop": 1,
+"name": &"wobble",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bhunq"]
+radius = 4.0
+
+[sub_resource type="Gradient" id="Gradient_kmlbp"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8)
+colors = PackedColorArray(0.36862746, 0.99215686, 0.5529412, 1, 0.3529412, 0.81960785, 0.4862745, 1, 0.32941177, 0.6509804, 0.41568628, 1, 0.3019608, 0.49019608, 0.35686275, 1, 0.25882354, 0.3372549, 0.29803923, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sn0t7"]
+gradient = SubResource("Gradient_kmlbp")
+width = 5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_riqys"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.0
+inherit_velocity_ratio = 0.1
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_sn0t7")
+
+[node name="TurretProjectile" type="Node2D" unique_id=740761191]
+z_index = -5
+script = ExtResource("1_6obn6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1667166835]
+sprite_frames = SubResource("SpriteFrames_bhunq")
+animation = &"wobble"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=658518046]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1265333400]
+shape = SubResource("CircleShape2D_bhunq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1219726055]
+rect = Rect2(-100, -100, 200, 200)
+
+[node name="FlyParticles" type="GPUParticles2D" parent="." unique_id=1236465902]
+amount = 16
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_riqys")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

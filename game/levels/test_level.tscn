@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dn3x1qj88r8pn" path="res://game/entities/turret/turret.tscn" id="2_giiqr"]
 [ext_resource type="PackedScene" uid="uid://dxqq07mde0b4a" path="res://game/entities/danger/danger.tscn" id="2_yeikn"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_80l8l"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_giiqr"]
 viewport_path = NodePath("CanvasLayer/CodeViewport")
 
 [node name="TestLevel" unique_id=1001045799 instance=ExtResource("1_46m3m")]
@@ -19,7 +19,7 @@ tile_map_data = PackedByteArray("AAAMAP//AAAFAAoAAAAMAP7/AAALAAYAAAAMAP3/AAAIAAY
 
 [node name="Turret" parent="Turrets" parent_id_path=PackedInt32Array(491073452) index="0" unique_id=328367237 instance=ExtResource("2_giiqr")]
 position = Vector2(606, -432)
-shoot_delay = 3.0
+shoot_delay = 1.0
 
 [node name="Danger" parent="Dangers" parent_id_path=PackedInt32Array(608961351) index="0" unique_id=554396375 instance=ExtResource("2_yeikn")]
 offset_left = 89.0
@@ -28,4 +28,4 @@ offset_right = 189.0
 offset_bottom = -55.0
 
 [node name="CodeSprite" parent="CanvasLayer" parent_id_path=PackedInt32Array(1125559156) index="1" unique_id=1152584149]
-texture = SubResource("ViewportTexture_80l8l")
+texture = SubResource("ViewportTexture_giiqr")

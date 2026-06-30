@@ -99,6 +99,7 @@ func _on_corruption_timer_timeout() -> void:
 		corruption_timer.stop()
 		return
 	player.deal_damage(CORRUPTION_DAMAGE)
+	HitstopManager.medium_hitstop()
 	SoundManager.play_sfx_stream(SoundManager.sfx_stream_corruption, player.global_position)
 
 

@@ -32,6 +32,7 @@ func _hit_player() -> bool:
 	if not _player: return false
 	SoundManager.play_sfx_stream(SoundManager.sfx_stream_danger, global_position)
 	_player.deal_damage(DAMAGE_VALUE)
+	HitstopManager.medium_hitstop()
 	return true
 
 

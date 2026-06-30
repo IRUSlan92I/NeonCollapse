@@ -9,13 +9,15 @@ enum Direction {
 }
 
 
+const PROJECTILE = preload("res://game/entities/turret/turret_projectile.tscn")
+
 const ANIMATION_IDLE = "idle"
 const ANIMATION_SHOOT = "shoot"
 
 const SHOT_FRAME = 3
 
 
-@export_range(0.0, 60.0) var shoot_delay := 3.0
+@export_range(1.0, 10.0) var shoot_delay := 1.0
 
 @export var direction := Direction.Left:
 	set(value):
@@ -46,7 +48,10 @@ func _ready() -> void:
 
 
 func _shoot() -> void:
-	print("Shot")
+	var projectile : TurretProjectile = PROJECTILE.instantiate()
+	projectile.global_position = _current_muzzle.global_position
+	projectile.direction = _get_projectile_direction()
+	get_tree().current_scene.add_child(projectile)
 
 
 func _update_direction() -> void:
@@ -60,6 +65,16 @@ func _update_direction() -> void:
 			_current_sprite = right_sprite
 			_current_muzzle = right_muzzle
 	_current_sprite.show()
+
+
+func _get_projectile_direction() -> Vector2:
+	match direction:
+		Direction.Left:
+			return Vector2.LEFT
+		Direction.Right:
+			return Vector2.RIGHT
+		_:
+			return Vector2.ZERO
 
 
 func _on_left_sprite_animation_finished() -> void:
