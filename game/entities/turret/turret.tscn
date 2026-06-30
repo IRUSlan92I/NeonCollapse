@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://dn3x1qj88r8pn"]
+
+[ext_resource type="Script" uid="uid://cpcawuflstr35" path="res://game/entities/turret/turret.gd" id="1_t2kwx"]
+[ext_resource type="Texture2D" uid="uid://drbm7sgovja7y" path="res://images/entities/turret.png" id="2_dk6qj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc2wu"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyas7"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ypow"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpkta"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofwyn"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lhwr"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep464"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anymp"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2kwx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc2wu")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyas7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ypow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpkta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofwyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lhwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ep464")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anymp")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk6qj"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfd5k"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch0l6"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2od74"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0sii"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw4r7"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3apy"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viadk"]
+atlas = ExtResource("2_dk6qj")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dk6qj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk6qj")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfd5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch0l6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2od74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0sii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw4r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3apy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viadk")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 10.0
+}]
+
+[node name="Turret" type="Node2D" unique_id=328367237]
+script = ExtResource("1_t2kwx")
+shoot_delay = null
+
+[node name="LeftSprite" type="AnimatedSprite2D" parent="." unique_id=1558853615]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_t2kwx")
+animation = &"idle"
+
+[node name="RightSprite" type="AnimatedSprite2D" parent="." unique_id=664817745]
+visible = false
+sprite_frames = SubResource("SpriteFrames_dk6qj")
+animation = &"shoot"
+
+[node name="LeftMuzzle" type="Node2D" parent="." unique_id=1708157273]
+position = Vector2(-12, -19)
+
+[node name="RightMuzzle" type="Node2D" parent="." unique_id=1799037147]
+position = Vector2(12, -19)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1043641466]
+
+[connection signal="animation_finished" from="LeftSprite" to="." method="_on_left_sprite_animation_finished"]
+[connection signal="frame_changed" from="LeftSprite" to="." method="_on_sprite_frame_changed"]
+[connection signal="animation_finished" from="RightSprite" to="." method="_on_right_sprite_animation_finished"]
+[connection signal="sprite_frames_changed" from="RightSprite" to="." method="_on_sprite_frame_changed"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

@@ -1199,6 +1199,8 @@ script = ExtResource("1_o2mui")
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=502099522]
 tile_set = SubResource("TileSet_71ysb")
 
+[node name="Turrets" type="Node2D" parent="." unique_id=491073452]
+
 [node name="Dangers" type="Node2D" parent="." unique_id=608961351]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1125559156]

@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://byn27t4ualxmi" path="res://sound/sfx/danger.wav" id="6_wyfta"]
 [ext_resource type="AudioStream" uid="uid://bj6ausg5hyuyg" path="res://sound/sfx/swing.wav" id="7_ab171"]
 [ext_resource type="AudioStream" uid="uid://33unutlwsika" path="res://sound/sfx/wall_jump.wav" id="8_22ptj"]
+[ext_resource type="AudioStream" uid="uid://bnrvkm5wy8wda" path="res://sound/sfx/turret_shot.wav" id="13_814q3"]
 
 [node name="SoundManager" type="Node" unique_id=1576371552]
 process_mode = 3
@@ -34,4 +35,5 @@ sfx_stream_game_over = ExtResource("6_6ll5c")
 sfx_stream_jump = ExtResource("5_fpnh3")
 sfx_stream_land = ExtResource("6_22ptj")
 sfx_stream_swing = ExtResource("7_ab171")
+sfx_stream_turret_shot = ExtResource("13_814q3")
 sfx_stream_wall_jump = ExtResource("8_22ptj")
