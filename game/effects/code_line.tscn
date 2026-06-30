@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cnasnqa1t62na"]
+
+[ext_resource type="Script" uid="uid://dspduev7xpwo7" path="res://game/effects/code_line.gd" id="1_apnc4"]
+[ext_resource type="Texture2D" uid="uid://bu0ti323biesp" path="res://images/level/code.png" id="2_db2bm"]
+
+[node name="CodeLine" type="Parallax2D" unique_id=802841827]
+script = ExtResource("1_apnc4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1434665309]
+texture = ExtResource("2_db2bm")

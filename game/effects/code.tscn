@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bafplnd2un011"]
+
+[ext_resource type="Script" uid="uid://y1bnpjctf5yp" path="res://game/effects/code.gd" id="1_udxn3"]
+
+[node name="Code" type="Node2D" unique_id=946204992]
+script = ExtResource("1_udxn3")
