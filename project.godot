@@ -25,6 +25,8 @@ buses/default_bus_layout="uid://c2chib4gm7ni4"
 SoundManager="*uid://b5wqc1hgwcdm4"
 SettingsManager="*uid://cuyv26utj07j4"
 HitstopManager="*uid://ba262w3ebkyo1"
+LevelManager="*uid://bk2pkmgxsgars"
+SaveManager="*uid://2pbgcr5yk7iy"
 
 [debug]
 

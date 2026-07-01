@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b1x0tmnf7hx7h" path="res://game/hud/health_bar.tscn" id="6_x8k35"]
 [ext_resource type="PackedScene" uid="uid://cl7vqh8j2f5py" path="res://game/menu/game_over_menu.tscn" id="7_l0xih"]
 [ext_resource type="PackedScene" uid="uid://bafplnd2un011" path="res://game/effects/code.tscn" id="8_b7vts"]
+[ext_resource type="PackedScene" uid="uid://dbnpcpwbw7f8q" path="res://game/menu/completion_menu.tscn" id="10_8xgvj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6b8cu"]
 resource_name = "Beams"
@@ -1199,8 +1200,13 @@ glow_intensity = 4.0
 glow_hdr_threshold = 0.5
 glow_hdr_scale = 4.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+
 [node name="AbstractLevel" type="Node2D" unique_id=1001045799]
 script = ExtResource("1_o2mui")
+initial_corruption_x = null
+corruption_speed = null
+desctruction_offset = null
 
 [node name="Player" parent="." unique_id=763780926 instance=ExtResource("2_r0ht6")]
 
@@ -1242,6 +1248,9 @@ process_mode = 2
 unique_name_in_owner = true
 process_mode = 2
 
+[node name="CompletionMenu" parent="CanvasLayer" unique_id=1435656270 instance=ExtResource("10_8xgvj")]
+unique_name_in_owner = true
+
 [node name="CorruptionTimer" type="Timer" parent="." unique_id=783383429]
 wait_time = 0.5
 
@@ -1254,7 +1263,15 @@ one_shot = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=310371888]
 environment = SubResource("Environment_bhunq")
 
+[node name="LevelEnd" type="Area2D" parent="." unique_id=1444951079]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd" unique_id=1314456096]
+shape = SubResource("RectangleShape2D_bhunq")
+
 [connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="timeout" from="CorruptionTimer" to="." method="_on_corruption_timer_timeout"]
 [connection signal="timeout" from="DestructionTimer" to="." method="_on_destruction_timer_timeout"]
 [connection signal="timeout" from="DeathFallTimer" to="." method="_on_death_fall_timer_timeout"]
+[connection signal="body_entered" from="LevelEnd" to="." method="_on_level_end_body_entered"]

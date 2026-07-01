@@ -31,7 +31,7 @@ func _on_gui_focus_changed(_node: Control) -> void:
 
 func _on_start_button_pressed() -> void:
 	SoundManager.play_ui_stream(SoundManager.ui_stream_accept)
-	get_tree().change_scene_to_file("res://game/levels/test_level.tscn")
+	get_tree().change_scene_to_file("res://game/menu/level_selection.tscn")
 
 
 func _on_options_button_pressed() -> void:

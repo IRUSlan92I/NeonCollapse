@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dbnpcpwbw7f8q"]
+
+[ext_resource type="Theme" uid="uid://bqj884yfvhhft" path="res://game/themes/main_menu.tres" id="1_xuusr"]
+[ext_resource type="Script" uid="uid://xoischtv2dir" path="res://game/menu/completion_menu.gd" id="2_0iv8v"]
+
+[sub_resource type="Environment" id="Environment_0iv8v"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 4.0
+glow_hdr_threshold = 0.5
+glow_hdr_scale = 4.0
+
+[node name="CompletionMenu" type="Control" unique_id=1435656270]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xuusr")
+script = ExtResource("2_0iv8v")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1975928285]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19607843, 0.19215687, 0.23137255, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=14906773]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=736609031]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=74970990]
+layout_mode = 2
+text = "COMPLETED!"
+horizontal_alignment = 1
+
+[node name="NextLevelButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=240104273]
+unique_name_in_owner = true
+layout_mode = 2
+text = "NEXT LEVEL"
+
+[node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=585564250]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MAIN MENU"
+
+[node name="FocusTimer" type="Timer" parent="." unique_id=416713934]
+one_shot = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=885590829]
+environment = SubResource("Environment_0iv8v")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="timeout" from="FocusTimer" to="." method="_on_focus_timer_timeout"]

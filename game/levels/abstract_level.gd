@@ -16,6 +16,7 @@ var _corruption_x: float
 @onready var player : Player = $Player
 @onready var pause_menu : PauseMenu = $%PauseMenu
 @onready var game_over_menu : GameOverMenu = $%GameOverMenu
+@onready var completion_menu : CompletionMenu = $%CompletionMenu
 @onready var health_bar : HealthBar = $%HealthBar
 
 @onready var corruption_timer : Timer = $CorruptionTimer
@@ -33,6 +34,7 @@ func _ready() -> void:
 	_corruption_x = initial_corruption_x
 	pause_menu.hide()
 	game_over_menu.hide()
+	completion_menu.hide()
 	
 	health_bar.initialize(player.MAX_HEALTH, player.MAX_HEALTH)
 	player.health_changed.connect(health_bar.set_current_value)
@@ -94,6 +96,17 @@ func _show_game_over() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
+func _complete_level(player_position: Vector2) -> void:
+	SoundManager.play_sfx_stream(SoundManager.sfx_stream_level_completed, player_position)
+	get_tree().paused = true
+	completion_menu.show()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
+	if SaveManager.completed_levels <= LevelManager.current_level_index:
+		SaveManager.completed_levels = LevelManager.current_level_index + 1
+		SaveManager.save()
+
+
 func _on_corruption_timer_timeout() -> void:
 	if not player:
 		corruption_timer.stop()
@@ -114,3 +127,8 @@ func _on_death_fall_timer_timeout() -> void:
 
 func _on_destruction_timer_timeout() -> void:
 	_show_game_over()
+
+
+func _on_level_end_body_entered(body: Node2D) -> void:
+	if body is Player:
+		_complete_level(player.global_position)

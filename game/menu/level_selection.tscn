@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://br21ln0ol0745"]
+
+[ext_resource type="Theme" uid="uid://bqj884yfvhhft" path="res://game/themes/main_menu.tres" id="1_5cn0b"]
+[ext_resource type="Script" uid="uid://cjakr7gskefp4" path="res://game/menu/level_selection.gd" id="2_3oqjo"]
+
+[node name="LevelSelection" type="Control" unique_id=1026459282]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5cn0b")
+script = ExtResource("2_3oqjo")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=598516023]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1523206303]
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=2020347789]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=741081620]
+layout_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1148321937]
+layout_mode = 2
+text = "MAIN MENU"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
