@@ -98,6 +98,7 @@ text = "MASTER"
 
 [node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1600615574]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 4
 step = 10.0
@@ -111,6 +112,7 @@ text = "UI"
 
 [node name="UISlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=2094741924]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 4
 step = 10.0
@@ -124,6 +126,7 @@ text = "SFX"
 
 [node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=630139889]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 4
 step = 10.0
@@ -137,6 +140,7 @@ text = "MUSIC"
 
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=537100873]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 4
 step = 10.0

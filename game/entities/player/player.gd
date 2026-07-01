@@ -43,8 +43,10 @@ var _current_health: = MAX_HEALTH:
 
 @onready var player_sprite : AnimatedSprite2D = $PlayerSprite
 @onready var blade_sprite : AnimatedSprite2D = $BladeSprite
-@onready var attack_left_sprite : AnimatedSprite2D = $AttackLeftSprite
-@onready var attack_right_sprite : AnimatedSprite2D = $AttackRightSprite
+@onready var left_attack_sprite : AnimatedSprite2D = $LeftAttackSprite
+@onready var right_attack_sprite : AnimatedSprite2D = $RightAttackSprite
+@onready var left_attack_area : Area2D = $LeftAttackArea
+@onready var right_attack_area : Area2D = $RightAttackArea
 
 @onready var camera : Camera2D = $Camera2D
 @onready var state_machine : StateMachine = $StateMachine
@@ -55,6 +57,7 @@ var _current_health: = MAX_HEALTH:
 @onready var wall_coyote_time_timer : Timer = $WallCoyoteTimeTimer
 
 @onready var wall_attach_timer : Timer = $WallAttachTimer
+@onready var attack_buffer_timer : Timer = $AttackBufferTimer
 @onready var attack_cooldown_timer : Timer = $AttackCooldownTimer
 
 @onready var wall_left_particles : GPUParticles2D = $WallLeftParticles
@@ -66,7 +69,7 @@ var _current_health: = MAX_HEALTH:
 func _ready() -> void:
 	state_machine.init()
 	
-	for sprite : AnimatedSprite2D in [ attack_left_sprite, attack_right_sprite ]:
+	for sprite : AnimatedSprite2D in [ left_attack_sprite, right_attack_sprite ]:
 		var lambda := func() -> void:
 			sprite.hide()
 			if not is_zero_approx(velocity.x):
@@ -75,7 +78,7 @@ func _ready() -> void:
 		sprite.hide()
 
 
-func _physics_process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		floor_coyote_time_timer.start()
 		_last_wall_normal = 0.0
@@ -120,12 +123,16 @@ func _physics_process(delta: float) -> void:
 			wall_coyote_time_timer.stop()
 			SoundManager.play_sfx_stream(SoundManager.sfx_stream_wall_jump, global_position)
 	
-	
 	if input_direction:
 		var input_velocity := input_direction * _max_speed
 		velocity.x = move_toward(velocity.x, input_velocity, move_acceleration * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_acceleration * delta)
+	
+	if not attack_buffer_timer.is_stopped():
+		if _can_attack():
+			_attack()
+			attack_buffer_timer.stop()
 	
 	move_and_slide()
 	state_machine.physics_process(delta)
@@ -133,9 +140,10 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
-		if not _slow_down_tween or not _slow_down_tween.is_running():
-			if not is_on_wall() and not is_on_floor() or not is_zero_approx(velocity.x):
-				_attack()
+		if _can_attack():
+			_attack()
+		else:
+			attack_buffer_timer.start()
 
 
 func deal_damage(value: float) -> void:
@@ -145,15 +153,41 @@ func deal_damage(value: float) -> void:
 		dead.emit()
 
 
+func _can_attack() -> bool:
+	if not attack_cooldown_timer.is_stopped():
+		return false
+	if is_on_wall() and is_on_floor() or is_zero_approx(velocity.x):
+		return false
+	return true
+
+
 func _attack() -> void:
-	var sprite := attack_left_sprite if velocity.x <= 0.0 else attack_right_sprite
+	attack_cooldown_timer.start()
+	var is_left := velocity.x <= 0.0
+	var sprite := left_attack_sprite if is_left else right_attack_sprite
+	var attack_area := left_attack_area if is_left else right_attack_area
 	sprite.show()
+	attack_area.monitoring = true
 	blade_sprite.hide()
 	sprite.play("attack")
 	SoundManager.play_sfx_stream(SoundManager.sfx_stream_swing, global_position)
 	
+	_max_speed = move_max_speed_normal
 	_slow_down_tween = create_tween()
 	_slow_down_tween.tween_property(self, "_max_speed", move_max_speed_slowed, slow_down_attack)
 	_slow_down_tween.tween_property(self, "_max_speed", move_max_speed_slowed, slow_down_sustain)
 	_slow_down_tween.tween_property(self, "_max_speed", move_max_speed_normal, slow_down_release)
 	_slow_down_tween.tween_property(sprite, "visible", false, 0.0)
+
+
+func _on_attack_area_entered(area: Area2D) -> void:
+	if area is TurretProjectile:
+		area.queue_free()
+
+
+func _on_left_attack_sprite_animation_finished() -> void:
+	left_attack_area.monitoring = false
+
+
+func _on_right_attack_sprite_animation_finished() -> void:
+	right_attack_area.monitoring = false

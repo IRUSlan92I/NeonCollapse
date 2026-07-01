@@ -1,5 +1,5 @@
 class_name TurretProjectile
-extends Node2D
+extends Area2D
 
 
 const SPEED = 300

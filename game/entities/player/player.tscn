@@ -524,6 +524,10 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_riqys"]
+radius = 8.0
+height = 24.0
+
 [sub_resource type="Gradient" id="Gradient_qr0ht"]
 interpolation_mode = 1
 colors = PackedColorArray(0.99215686, 0.99607843, 0.5372549, 1, 1, 0.7529412, 0.46666667, 1)
@@ -558,15 +562,37 @@ position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_riqys")
 animation = &"jump_right"
 
-[node name="AttackLeftSprite" type="AnimatedSprite2D" parent="." unique_id=444979654]
+[node name="LeftAttackSprite" type="AnimatedSprite2D" parent="." unique_id=444979654]
 position = Vector2(-16, 0)
 sprite_frames = SubResource("SpriteFrames_sn0t7")
 animation = &"attack"
+frame = 5
+frame_progress = 1.0
 
-[node name="AttackRightSprite" type="AnimatedSprite2D" parent="." unique_id=864909741]
+[node name="RightAttackSprite" type="AnimatedSprite2D" parent="." unique_id=864909741]
 position = Vector2(16, 0)
 sprite_frames = SubResource("SpriteFrames_i4f54")
 animation = &"attack"
+frame = 5
+frame_progress = 1.0
+
+[node name="LeftAttackArea" type="Area2D" parent="." unique_id=829956444]
+position = Vector2(-20, 0)
+collision_layer = 16
+collision_mask = 8
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftAttackArea" unique_id=1938609000]
+shape = SubResource("CapsuleShape2D_riqys")
+
+[node name="RightAttackArea" type="Area2D" parent="." unique_id=1656556085]
+position = Vector2(20, 0)
+collision_layer = 16
+collision_mask = 8
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightAttackArea" unique_id=1463315605]
+shape = SubResource("CapsuleShape2D_riqys")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1654451713]
 limit_bottom = 0
@@ -649,9 +675,13 @@ process_callback = 0
 wait_time = 0.5
 one_shot = true
 
+[node name="AttackBufferTimer" type="Timer" parent="." unique_id=718116108]
+wait_time = 0.5
+
 [node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1208896947]
 process_callback = 0
-wait_time = 0.75
+wait_time = 0.5
+one_shot = true
 
 [node name="WallLeftParticles" type="GPUParticles2D" parent="." unique_id=2009522894]
 position = Vector2(-4, 4)
@@ -667,3 +697,8 @@ emitting = false
 amount = 32
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_bhunq")
+
+[connection signal="animation_finished" from="LeftAttackSprite" to="." method="_on_left_attack_sprite_animation_finished"]
+[connection signal="animation_finished" from="RightAttackSprite" to="." method="_on_right_attack_sprite_animation_finished"]
+[connection signal="area_entered" from="LeftAttackArea" to="." method="_on_attack_area_entered"]
+[connection signal="area_entered" from="RightAttackArea" to="." method="_on_attack_area_entered"]

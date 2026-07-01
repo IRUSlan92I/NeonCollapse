@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://boedoah7a3ew3" path="res://game/entities/turret/turret_projectile.gd" id="1_6obn6"]
 [ext_resource type="Texture2D" uid="uid://domd2gwquuiec" path="res://images/entities/turret_projectile.png" id="2_kmlbp"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bhunq"]
+radius = 4.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4stq6"]
 atlas = ExtResource("2_kmlbp")
 region = Rect2(0, 0, 16, 16)
@@ -123,9 +126,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bhunq"]
-radius = 4.0
-
 [sub_resource type="Gradient" id="Gradient_kmlbp"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8)
@@ -146,20 +146,18 @@ scale_min = 2.0
 scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_sn0t7")
 
-[node name="TurretProjectile" type="Node2D" unique_id=740761191]
+[node name="TurretProjectile" type="Area2D" unique_id=978959486]
 z_index = -5
+collision_layer = 8
+collision_mask = 3
 script = ExtResource("1_6obn6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1265333400]
+shape = SubResource("CircleShape2D_bhunq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1667166835]
 sprite_frames = SubResource("SpriteFrames_bhunq")
 animation = &"wobble"
-
-[node name="Area2D" type="Area2D" parent="." unique_id=658518046]
-collision_layer = 8
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1265333400]
-shape = SubResource("CircleShape2D_bhunq")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1219726055]
 rect = Rect2(-100, -100, 200, 200)
@@ -169,6 +167,6 @@ amount = 16
 lifetime = 0.2
 process_material = SubResource("ParticleProcessMaterial_riqys")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
