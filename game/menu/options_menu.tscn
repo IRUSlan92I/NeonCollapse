@@ -9,6 +9,14 @@ action = &"ui_cancel"
 [sub_resource type="Shortcut" id="Shortcut_e2bp2"]
 events = [SubResource("InputEventAction_j72d6")]
 
+[sub_resource type="Environment" id="Environment_e2bp2"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 4.0
+glow_hdr_threshold = 0.5
+glow_hdr_scale = 4.0
+
 [node name="OptionsMenu" type="Control" unique_id=1463826396]
 layout_mode = 3
 anchors_preset = 15
@@ -159,6 +167,9 @@ size_flags_horizontal = 3
 shortcut = SubResource("Shortcut_e2bp2")
 shortcut_in_tooltip = false
 text = "BACK"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1005016521]
+environment = SubResource("Environment_e2bp2")
 
 [connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/FullscreenCheckButton" to="." method="_on_fullscreen_check_button_toggled"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MasterSlider" to="." method="_on_master_volume_changed"]

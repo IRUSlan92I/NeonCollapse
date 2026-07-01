@@ -4,6 +4,14 @@
 [ext_resource type="Script" uid="uid://daw3vlybwcj5l" path="res://game/menu/main_menu.gd" id="2_qnvmd"]
 [ext_resource type="FontFile" uid="uid://bslwwl3rn7mt2" path="res://fonts/Px437_HP_100LX_8x8.ttf" id="3_i4f54"]
 
+[sub_resource type="Environment" id="Environment_i4f54"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 4.0
+glow_hdr_threshold = 0.5
+glow_hdr_scale = 4.0
+
 [node name="MainMenu" type="Control" unique_id=569032006]
 layout_mode = 3
 anchors_preset = 15
@@ -62,6 +70,9 @@ text = "v 1.0.0
 Powered by Godot Engine"
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2040357503]
+environment = SubResource("Environment_i4f54")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

@@ -3,6 +3,14 @@
 [ext_resource type="Theme" uid="uid://bqj884yfvhhft" path="res://game/themes/main_menu.tres" id="1_i4rg2"]
 [ext_resource type="Script" uid="uid://b45v44jhm26oj" path="res://game/menu/pause_menu.gd" id="2_e1jsn"]
 
+[sub_resource type="Environment" id="Environment_e1jsn"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 4.0
+glow_hdr_threshold = 0.5
+glow_hdr_scale = 4.0
+
 [node name="PauseMenu" type="Control" unique_id=1815975678]
 layout_mode = 3
 anchors_preset = 15
@@ -44,6 +52,9 @@ text = "CONTINUE"
 unique_name_in_owner = true
 layout_mode = 2
 text = "MAIN MENU"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=117513485]
+environment = SubResource("Environment_e1jsn")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

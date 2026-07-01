@@ -3,6 +3,14 @@
 [ext_resource type="Theme" uid="uid://bqj884yfvhhft" path="res://game/themes/main_menu.tres" id="1_htxfh"]
 [ext_resource type="Script" uid="uid://coqb1xl7lngo5" path="res://game/menu/game_over_menu.gd" id="2_m1ad0"]
 
+[sub_resource type="Environment" id="Environment_m1ad0"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 4.0
+glow_hdr_threshold = 0.5
+glow_hdr_scale = 4.0
+
 [node name="GameOverMenu" type="Control" unique_id=795145041]
 layout_mode = 3
 anchors_preset = 15
@@ -51,6 +59,9 @@ text = "MAIN MENU"
 
 [node name="FocusTimer" type="Timer" parent="." unique_id=1727491464]
 one_shot = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=555856531]
+environment = SubResource("Environment_m1ad0")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
