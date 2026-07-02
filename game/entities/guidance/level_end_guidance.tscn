@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dlntrn4m04pxn"]
+
+[ext_resource type="PackedScene" uid="uid://d8wwtdj30wwr" path="res://game/entities/guidance/guidance.tscn" id="1_j0vpf"]
+
+[node name="LevelEndGuidance" unique_id=1797017316 instance=ExtResource("1_j0vpf")]
+size = 1
+text = "===>"
+
+[node name="SmallSprite" parent="." index="0" unique_id=1649957299]
+visible = false
+
+[node name="BigSprite" parent="." index="1" unique_id=835120450]
+visible = true
+
+[node name="Label" parent="." index="2" unique_id=1747099762]
+text = "===>"

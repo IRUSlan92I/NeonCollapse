@@ -48,6 +48,9 @@ keyboard_guidance = NodePath("../Keyboard")
 gamepad_guidance = NodePath("../Gamepad")
 metadata/_custom_type_script = "uid://bbhog55aay31d"
 
+[node name="LevelEndGuidance" parent="Guidances" parent_id_path=PackedInt32Array(1356136322) index="2" unique_id=1797017316]
+position = Vector2(3412, -252)
+
 [node name="CodeSprite" parent="CanvasLayer" parent_id_path=PackedInt32Array(1125559156) index="1" unique_id=1152584149]
 texture = SubResource("ViewportTexture_wi6ud")
 

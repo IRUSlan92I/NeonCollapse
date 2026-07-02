@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b8rm1kxgci4l1" path="res://images/level/beams.png" id="4_pi5fd"]
 [ext_resource type="Shader" uid="uid://b6gy8a5et63t1" path="res://game/shaders/code.gdshader" id="5_8ydah"]
 [ext_resource type="Texture2D" uid="uid://fe83ekwwmnuv" path="res://images/level/bricks.png" id="5_un604"]
+[ext_resource type="PackedScene" uid="uid://dlntrn4m04pxn" path="res://game/entities/guidance/level_end_guidance.tscn" id="6_rvm7w"]
 [ext_resource type="PackedScene" uid="uid://b1x0tmnf7hx7h" path="res://game/hud/health_bar.tscn" id="6_x8k35"]
 [ext_resource type="PackedScene" uid="uid://cl7vqh8j2f5py" path="res://game/menu/game_over_menu.tscn" id="7_l0xih"]
 [ext_resource type="PackedScene" uid="uid://bafplnd2un011" path="res://game/effects/code.tscn" id="8_b7vts"]
@@ -1910,6 +1911,8 @@ tile_set = SubResource("TileSet_71ysb")
 [node name="Dangers" type="Node2D" parent="." unique_id=608961351]
 
 [node name="Guidances" type="Node2D" parent="." unique_id=1356136322]
+
+[node name="LevelEndGuidance" parent="Guidances" unique_id=1797017316 instance=ExtResource("6_rvm7w")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1125559156]
 
