@@ -7,12 +7,14 @@ signal dead()
 
 
 const MAX_HEALTH = 100.0
+const CAMERA_OFFSET_FACTOR = 0.4
+const CAMERA_OFFSET_TIME = 1.0
 
 
 @export_group("Movement", "move")
 @export_range(0.0, 1000.0) var move_max_speed_normal := 350
 @export_range(0.0, 1000.0) var move_max_speed_slowed := 250
-@export_range(0.0, 1000.0) var move_acceleration := 1000.0
+@export_range(0.0, 1000.0) var move_acceleration := 750.0
 
 @export_group("Jump", "jump")
 @export_range(0.0, 1000.0) var jump_max_fall_speed := 1000
@@ -30,8 +32,15 @@ const MAX_HEALTH = 100.0
 @export_range(0.0, 1000.0) var slow_down_sustain := 0.70
 @export_range(0.0, 1000.0) var slow_down_release := 0.25
 
+@export var camera_limit_right := 10000000:
+	set(value):
+		camera_limit_right = value
+		if is_node_ready():
+			_update_camera_limit_right()
+
 
 var _slow_down_tween: Tween
+var _camera_offset_tween: Tween
 
 var _last_wall_normal: = 0.0
 
@@ -79,6 +88,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	_update_camera_limit_right()
+	
 	if is_on_floor():
 		floor_coyote_time_timer.start()
 		_last_wall_normal = 0.0
@@ -136,6 +147,12 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	state_machine.physics_process(delta)
+	
+	if _camera_offset_tween and _camera_offset_tween.is_running():
+		_camera_offset_tween.kill()
+	_camera_offset_tween = create_tween()
+	var new_camera_position := Vector2(velocity.x * CAMERA_OFFSET_FACTOR, 0)
+	_camera_offset_tween.tween_property(camera, "position", new_camera_position, CAMERA_OFFSET_TIME)
 
 
 func _input(event: InputEvent) -> void:
@@ -151,6 +168,10 @@ func deal_damage(value: float) -> void:
 	health_changed.emit(_current_health)
 	if _current_health < 0.0 or is_zero_approx(_current_health):
 		dead.emit()
+
+
+func _update_camera_limit_right() -> void:
+	camera.limit_right = camera_limit_right
 
 
 func _can_attack() -> bool:

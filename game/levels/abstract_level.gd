@@ -5,8 +5,8 @@ extends Node2D
 const CORRUPTION_DAMAGE = 10.0
 
 
-@export var initial_corruption_x := 0.0
-@export var corruption_speed := 0.0
+@export var initial_corruption_x := -400.0
+@export var corruption_speed := 200.0
 @export var desctruction_offset := 100.0
 
 

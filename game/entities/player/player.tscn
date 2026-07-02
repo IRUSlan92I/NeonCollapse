@@ -64,10 +64,6 @@ region = Rect2(96, 192, 32, 32)
 atlas = ExtResource("2_cjfdk")
 region = Rect2(128, 192, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t56eh"]
-atlas = ExtResource("2_cjfdk")
-region = Rect2(0, 64, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6pmmc"]
 atlas = ExtResource("2_cjfdk")
 region = Rect2(32, 64, 32, 32)
@@ -88,9 +84,9 @@ region = Rect2(128, 64, 32, 32)
 atlas = ExtResource("2_cjfdk")
 region = Rect2(160, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8pcyd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t56eh"]
 atlas = ExtResource("2_cjfdk")
-region = Rect2(0, 96, 32, 32)
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fq5t3"]
 atlas = ExtResource("2_cjfdk")
@@ -111,6 +107,10 @@ region = Rect2(128, 96, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_588tj"]
 atlas = ExtResource("2_cjfdk")
 region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pcyd"]
+atlas = ExtResource("2_cjfdk")
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66tqw"]
 atlas = ExtResource("2_cjfdk")
@@ -181,9 +181,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t56eh")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_6pmmc")
 }, {
 "duration": 1.0,
@@ -197,15 +194,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4neg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t56eh")
 }],
 "loop": 1,
 "name": &"run_left",
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8pcyd")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fq5t3")
 }, {
@@ -220,6 +217,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_588tj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pcyd")
 }],
 "loop": 1,
 "name": &"run_right",
@@ -555,7 +555,7 @@ shape = SubResource("CapsuleShape2D_bhunq")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=2025942250]
 sprite_frames = SubResource("SpriteFrames_bhunq")
-animation = &"wall_right"
+animation = &"run_left"
 
 [node name="BladeSprite" type="AnimatedSprite2D" parent="." unique_id=1561250707]
 position = Vector2(0, 8)

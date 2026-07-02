@@ -1885,12 +1885,10 @@ glow_hdr_threshold = 0.5
 glow_hdr_scale = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(20, 200)
 
 [node name="AbstractLevel" type="Node2D" unique_id=1001045799]
 script = ExtResource("1_o2mui")
-initial_corruption_x = null
-corruption_speed = null
-desctruction_offset = null
 
 [node name="Background" type="Node2D" parent="." unique_id=753724440]
 
@@ -1910,6 +1908,8 @@ tile_set = SubResource("TileSet_71ysb")
 [node name="Turrets" type="Node2D" parent="." unique_id=491073452]
 
 [node name="Dangers" type="Node2D" parent="." unique_id=608961351]
+
+[node name="Guidances" type="Node2D" parent="." unique_id=1356136322]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1125559156]
 

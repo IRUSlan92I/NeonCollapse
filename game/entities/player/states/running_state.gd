@@ -31,6 +31,7 @@ func exit() -> void:
 
 
 func physics_process(_delta: float) -> void:
+	player.player_sprite.speed_scale = max(player.velocity.x / player.move_max_speed_normal, 0.5)
 	if player.is_on_floor():
 		if is_zero_approx(player.velocity.x):
 			switch_state.emit(idle)

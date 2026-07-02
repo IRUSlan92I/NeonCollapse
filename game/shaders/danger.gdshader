@@ -20,26 +20,4 @@ void fragment() {
 	float fade = clamp(pixel_dist / edge_width, 0.0, 1.0);
 
 	COLOR.a *= fade;
-	
-	
-	
-	//vec4 tex_color = texture(TEXTURE, UV);
-//
-    //// Расстояние до каждого края в пикселях экрана
-    //float dist_left   = UV.x / fwidth(UV.x);
-    //float dist_right  = (1.0 - UV.x) / fwidth(UV.x);
-    //float dist_bottom = UV.y / fwidth(UV.y);
-    //float dist_top    = (1.0 - UV.y) / fwidth(UV.y);
-//
-    //// Берём ближайший край
-    //float pixel_dist = min(min(dist_left, dist_right),
-                           //min(dist_bottom, dist_top));
-//
-    //// Плавное затухание: 0 на самой границе, 1 на расстоянии edge_width и дальше
-    //float fade = clamp(pixel_dist / edge_width, 0.0, 1.0);
-//
-    //COLOR = tex_color;
-    //COLOR.a *= fade;
-	
-	
 }

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dcls1laigghr4"]
+
+[ext_resource type="Script" uid="uid://bbhog55aay31d" path="res://game/entities/guidance/control_guidance_switcher.gd" id="1_mw6mb"]
+
+[node name="ControlGuidanceSwitcher" type="Node" unique_id=552528483]
+script = ExtResource("1_mw6mb")

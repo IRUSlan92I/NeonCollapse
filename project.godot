@@ -27,6 +27,7 @@ SettingsManager="*uid://cuyv26utj07j4"
 HitstopManager="*uid://ba262w3ebkyo1"
 LevelManager="*uid://bk2pkmgxsgars"
 SaveManager="*uid://2pbgcr5yk7iy"
+InputManager="*uid://c8gid73siy882"
 
 [debug]
 
