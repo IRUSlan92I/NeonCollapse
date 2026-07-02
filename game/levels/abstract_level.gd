@@ -41,7 +41,7 @@ func _ready() -> void:
 	
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
-	#TODO Add gameplay music
+	SoundManager.play_music_stream(SoundManager.music_stream_gameplay)
 
 
 func _process(_delta: float) -> void:

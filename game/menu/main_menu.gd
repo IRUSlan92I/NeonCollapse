@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	#TODO Add menu music
+	SoundManager.play_music_stream(SoundManager.music_stream_menu)
 	
 	start_button.grab_focus()
 	get_viewport().gui_focus_changed.connect(_on_gui_focus_changed)

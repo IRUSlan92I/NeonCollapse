@@ -39,6 +39,8 @@ const MUSIC_BUS = "Music"
 
 
 @export_group("Music Streams", "music_stream")
+@export var music_stream_menu : AudioStream
+@export var music_stream_gameplay : AudioStream
 
 
 
