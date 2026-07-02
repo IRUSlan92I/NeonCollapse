@@ -1895,8 +1895,9 @@ script = ExtResource("1_o2mui")
 
 [node name="Parallax1" type="Parallax2D" parent="Background" unique_id=1102720638]
 scroll_scale = Vector2(0.01, 0.01)
-scroll_offset = Vector2(-602, 180)
+scroll_offset = Vector2(500, 180)
 repeat_size = Vector2(900, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Parallax1" unique_id=1313622890]
 texture = ExtResource("2_3fw0b")

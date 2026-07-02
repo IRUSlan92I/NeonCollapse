@@ -3,8 +3,12 @@ extends Node2D
 
 
 const CORRUPTION_DAMAGE = 10.0
+const ADDITIONAL_SCROLL_OFFSET = 500.0
+const MAX_DISTANCE_TO_CORRUPTION = 320.0
 
 
+@export var is_player_running_on_start := true
+@export var background_offset := 0.0
 @export var initial_corruption_x := -400.0
 @export var corruption_speed := 200.0
 @export var desctruction_offset := 100.0
@@ -28,13 +32,19 @@ var _corruption_x: float
 
 @onready var camera : Camera2D = player.camera
 
+@onready var parallax_1 : Parallax2D = $Background/Parallax1
 
 
 func _ready() -> void:
+	parallax_1.scroll_offset.x = ADDITIONAL_SCROLL_OFFSET + background_offset
+	
 	_corruption_x = initial_corruption_x
 	pause_menu.hide()
 	game_over_menu.hide()
 	completion_menu.hide()
+	
+	if is_player_running_on_start:
+		player.velocity.x = player.move_max_speed_normal
 	
 	health_bar.initialize(player.MAX_HEALTH, player.MAX_HEALTH)
 	player.health_changed.connect(health_bar.set_current_value)
@@ -63,7 +73,10 @@ func _physics_process(delta: float) -> void:
 		if corruption_timer.is_stopped():
 			corruption_timer.start()
 	else:
+		MAX_DISTANCE_TO_CORRUPTION
 		corruption_timer.stop()
+		if player.position.x - _corruption_x > MAX_DISTANCE_TO_CORRUPTION:
+			_corruption_x = player.position.x - MAX_DISTANCE_TO_CORRUPTION
 	
 	if player.position.y > 0.0:
 		SoundManager.play_sfx_stream(SoundManager.sfx_stream_fall, player.global_position)
