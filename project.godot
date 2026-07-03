@@ -15,7 +15,7 @@ run/main_scene="uid://cl0h2acqcq5wq"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=240
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="uid://c3317arw543xy"
 
 [audio]
 
