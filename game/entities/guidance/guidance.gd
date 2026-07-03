@@ -43,14 +43,16 @@ func _ready() -> void:
 
 
 func _update_size() -> void:
+	var new_size := Vector2.ZERO
 	match size:
 		Size.Small:
-			rect.size = SMALL_SIZE
+			new_size = SMALL_SIZE
 		Size.Big:
-			rect.size = BIG_SIZE
+			new_size = BIG_SIZE
 		Size.Custom:
-			rect.size = custom_size
-	rect.position = -rect.size/2
+			new_size = custom_size
+	rect.set_deferred("size", new_size)
+	rect.set_deferred("position", -new_size/2)
 
 
 func _update_text() -> void:

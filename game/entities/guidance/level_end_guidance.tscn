@@ -6,11 +6,9 @@
 size = 1
 text = "===>"
 
-[node name="SmallSprite" parent="." index="0" unique_id=1649957299]
-visible = false
+[node name="NinePatchRect" parent="." index="0" unique_id=422652892]
+offset_left = -48.0
+offset_right = 48.0
 
-[node name="BigSprite" parent="." index="1" unique_id=835120450]
-visible = true
-
-[node name="Label" parent="." index="2" unique_id=1747099762]
+[node name="Label" parent="." index="1" unique_id=1747099762]
 text = "===>"
