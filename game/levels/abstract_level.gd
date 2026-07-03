@@ -3,7 +3,6 @@ extends Node2D
 
 
 const CORRUPTION_DAMAGE = 10.0
-const ADDITIONAL_SCROLL_OFFSET = 500.0
 const MAX_DISTANCE_TO_CORRUPTION = 320.0
 
 
@@ -36,7 +35,7 @@ var _corruption_x: float
 
 
 func _ready() -> void:
-	parallax_1.scroll_offset.x = ADDITIONAL_SCROLL_OFFSET + background_offset
+	parallax_1.scroll_offset.x = -background_offset * parallax_1.scroll_scale.x
 	
 	_corruption_x = initial_corruption_x
 	pause_menu.hide()
