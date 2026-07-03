@@ -3,7 +3,7 @@ extends Area2D
 
 
 const SPEED = 300
-const DAMAGE = 20.0
+const DAMAGE = 30.0
 
 const ANIMATION_WOBBLE = "wobble"
 

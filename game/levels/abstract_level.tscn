@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://bafplnd2un011" path="res://game/effects/code.tscn" id="8_b7vts"]
 [ext_resource type="PackedScene" uid="uid://dbnpcpwbw7f8q" path="res://game/menu/completion_menu.tscn" id="10_8xgvj"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bhunq"]
+normal = Vector2(1, 0)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10kvc"]
 texture = ExtResource("4_igrqf")
 0:0/0 = 0
@@ -3447,6 +3450,13 @@ normal = Vector2(-1, 0)
 
 [node name="AbstractLevel" type="Node2D" unique_id=1001045799]
 script = ExtResource("1_o2mui")
+
+[node name="LeftBorder" type="StaticBody2D" parent="." unique_id=941087283]
+position = Vector2(-400, 0)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBorder" unique_id=1796525114]
+shape = SubResource("WorldBoundaryShape2D_bhunq")
 
 [node name="Background" type="Node2D" parent="." unique_id=753724440]
 

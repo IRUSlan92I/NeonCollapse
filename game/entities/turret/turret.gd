@@ -64,6 +64,8 @@ func _update_direction() -> void:
 		Direction.Right:
 			_current_sprite = right_sprite
 			_current_muzzle = right_muzzle
+		_:
+			push_error("Wrong turret direction")
 	_current_sprite.show()
 
 
@@ -74,6 +76,7 @@ func _get_projectile_direction() -> Vector2:
 		Direction.Right:
 			return Vector2.RIGHT
 		_:
+			push_error("Wrong turret direction")
 			return Vector2.ZERO
 
 

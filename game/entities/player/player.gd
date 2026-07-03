@@ -13,7 +13,7 @@ const CAMERA_OFFSET_TIME = 1.0
 
 @export_group("Movement", "move")
 @export_range(0.0, 1000.0) var move_max_speed_normal := 350
-@export_range(0.0, 1000.0) var move_max_speed_slowed := 250
+@export_range(0.0, 1000.0) var move_max_speed_slowed := 150
 @export_range(0.0, 1000.0) var move_acceleration := 750.0
 
 @export_group("Jump", "jump")
@@ -29,8 +29,8 @@ const CAMERA_OFFSET_TIME = 1.0
 
 @export_group("Attack slow down", "slow_down")
 @export_range(0.0, 1000.0) var slow_down_attack := 0.05
-@export_range(0.0, 1000.0) var slow_down_sustain := 0.70
-@export_range(0.0, 1000.0) var slow_down_release := 0.25
+@export_range(0.0, 1000.0) var slow_down_sustain := 0.30
+@export_range(0.0, 1000.0) var slow_down_release := 0.15
 
 
 var _slow_down_tween: Tween

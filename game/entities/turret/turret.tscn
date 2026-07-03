@@ -143,7 +143,6 @@ animations = [{
 
 [node name="Turret" type="Node2D" unique_id=328367237]
 script = ExtResource("1_t2kwx")
-shoot_delay = null
 
 [node name="LeftSprite" type="AnimatedSprite2D" parent="." unique_id=1558853615]
 position = Vector2(0, -16)
@@ -152,6 +151,7 @@ animation = &"idle"
 
 [node name="RightSprite" type="AnimatedSprite2D" parent="." unique_id=664817745]
 visible = false
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_dk6qj")
 animation = &"shoot"
 
@@ -166,5 +166,5 @@ position = Vector2(12, -19)
 [connection signal="animation_finished" from="LeftSprite" to="." method="_on_left_sprite_animation_finished"]
 [connection signal="frame_changed" from="LeftSprite" to="." method="_on_sprite_frame_changed"]
 [connection signal="animation_finished" from="RightSprite" to="." method="_on_right_sprite_animation_finished"]
-[connection signal="sprite_frames_changed" from="RightSprite" to="." method="_on_sprite_frame_changed"]
+[connection signal="frame_changed" from="RightSprite" to="." method="_on_sprite_frame_changed"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
