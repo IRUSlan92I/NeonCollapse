@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://cwmibbhy2fpq2" path="res://sound/ui/accept.wav" id="2_ge1il"]
 [ext_resource type="AudioStream" uid="uid://d2tsomsqmhf0h" path="res://sound/ui/decline.wav" id="3_agyxs"]
 [ext_resource type="AudioStream" uid="uid://cfb2adf5hft7b" path="res://sound/ui/select.wav" id="4_0i6kl"]
+[ext_resource type="AudioStream" uid="uid://duahboiexw0ic" path="res://sound/sfx/congratulations.wav" id="5_13qx5"]
 [ext_resource type="AudioStream" uid="uid://dg38c1dh27a80" path="res://sound/sfx/corruption.wav" id="5_ab171"]
 [ext_resource type="AudioStream" uid="uid://bcc0textvn2lx" path="res://sound/sfx/jump.wav" id="5_fpnh3"]
 [ext_resource type="AudioStream" uid="uid://b6q00ggpln0k5" path="res://sound/sfx/game_over.wav" id="6_6ll5c"]
@@ -31,6 +32,7 @@ player_count_sfx = 32
 ui_stream_accept = ExtResource("2_ge1il")
 ui_stream_decline = ExtResource("3_agyxs")
 ui_stream_select = ExtResource("4_0i6kl")
+sfx_stream_congratulations = ExtResource("5_13qx5")
 sfx_stream_corruption = ExtResource("5_ab171")
 sfx_stream_danger = ExtResource("6_wyfta")
 sfx_stream_destruction = ExtResource("6_l4iry")

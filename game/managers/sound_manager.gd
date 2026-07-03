@@ -24,6 +24,7 @@ const MUSIC_BUS = "Music"
 @export var ui_stream_select : AudioStream
 
 @export_group("SFX Streams", "sfx_stream")
+@export var sfx_stream_congratulations : AudioStream
 @export var sfx_stream_corruption : AudioStream
 @export var sfx_stream_danger : AudioStream
 @export var sfx_stream_destruction : AudioStream

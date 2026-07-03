@@ -162,6 +162,7 @@ position = Vector2(-12, -19)
 position = Vector2(12, -19)
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1043641466]
+wait_time = 0.923
 
 [connection signal="animation_finished" from="LeftSprite" to="." method="_on_left_sprite_animation_finished"]
 [connection signal="frame_changed" from="LeftSprite" to="." method="_on_sprite_frame_changed"]

@@ -29,6 +29,7 @@ position = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_bhunq")
 
 [node name="DamageTimer" type="Timer" parent="." unique_id=38832097]
+wait_time = 0.33
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
