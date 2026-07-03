@@ -4,23 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://dc3j8hs0ld4cg" path="res://images/entities/guidance.png" id="2_37fbl"]
 [ext_resource type="Theme" uid="uid://bqj884yfvhhft" path="res://game/themes/main_menu.tres" id="3_1vdxa"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0gb2d"]
-atlas = ExtResource("2_37fbl")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_37fbl"]
-atlas = ExtResource("2_37fbl")
-region = Rect2(48, 0, 96, 48)
-
 [node name="Guidance" type="Node2D" unique_id=1797017316]
 script = ExtResource("1_0gb2d")
 
-[node name="SmallSprite" type="Sprite2D" parent="." unique_id=1649957299]
-texture = SubResource("AtlasTexture_0gb2d")
-
-[node name="BigSprite" type="Sprite2D" parent="." unique_id=835120450]
-visible = false
-texture = SubResource("AtlasTexture_37fbl")
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=422652892]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_37fbl")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
 
 [node name="Label" type="Label" parent="." unique_id=1747099762]
 anchors_preset = 15
