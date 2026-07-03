@@ -3440,20 +3440,6 @@ tile_set = SubResource("TileSet_4l6p7")
 
 [node name="Player" parent="." unique_id=763780926 instance=ExtResource("2_r0ht6")]
 position = Vector2(0, -224)
-move_max_speed_normal = null
-move_max_speed_slowed = null
-move_acceleration = null
-jump_max_fall_speed = null
-jump_floor_velocity = null
-jump_wall_velocity = null
-gravity_factor_jump = null
-gravity_factor_fall = null
-gravity_factor_slide = null
-gravity_factor_passive_jump = null
-slow_down_attack = null
-slow_down_sustain = null
-slow_down_release = null
-camera_limit_right = null
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=502099522]
 tile_set = SubResource("TileSet_71ysb")

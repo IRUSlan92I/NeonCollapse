@@ -76,7 +76,6 @@ func _physics_process(delta: float) -> void:
 		if corruption_timer.is_stopped():
 			corruption_timer.start()
 	else:
-		MAX_DISTANCE_TO_CORRUPTION
 		corruption_timer.stop()
 		if player.position.x - _corruption_x > MAX_DISTANCE_TO_CORRUPTION:
 			_corruption_x = player.position.x - MAX_DISTANCE_TO_CORRUPTION
