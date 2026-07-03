@@ -3472,6 +3472,8 @@ texture = ExtResource("2_3fw0b")
 [node name="BackgroundTileMapLayer" type="TileMapLayer" parent="." unique_id=1991567130]
 tile_set = SubResource("TileSet_4l6p7")
 
+[node name="Dangers" type="Node2D" parent="." unique_id=608961351]
+
 [node name="Player" parent="." unique_id=763780926 instance=ExtResource("2_r0ht6")]
 position = Vector2(0, -224)
 
@@ -3479,8 +3481,6 @@ position = Vector2(0, -224)
 tile_set = SubResource("TileSet_71ysb")
 
 [node name="Turrets" type="Node2D" parent="." unique_id=491073452]
-
-[node name="Dangers" type="Node2D" parent="." unique_id=608961351]
 
 [node name="Guidances" type="Node2D" parent="." unique_id=1356136322]
 

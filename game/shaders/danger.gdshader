@@ -3,7 +3,7 @@ shader_type canvas_item;
 #include "res://game/shaders/random_color.gdshaderinc"
 
 uniform float chance : hint_range(0.0, 1.0) = 0.3;
-uniform float edge_width : hint_range(0, 100) = 8.0;
+uniform float edge_width : hint_range(0, 100) = 4.0;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest_mipmap;
 
