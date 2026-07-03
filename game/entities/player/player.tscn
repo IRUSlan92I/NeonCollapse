@@ -200,7 +200,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"run_left",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -223,7 +223,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"run_right",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -555,7 +555,7 @@ shape = SubResource("CapsuleShape2D_bhunq")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=2025942250]
 sprite_frames = SubResource("SpriteFrames_bhunq")
-animation = &"run_left"
+animation = &"run_right"
 
 [node name="BladeSprite" type="AnimatedSprite2D" parent="." unique_id=1561250707]
 position = Vector2(0, 8)

@@ -58,6 +58,7 @@ layout_mode = 2
 text = "MAIN MENU"
 
 [node name="FocusTimer" type="Timer" parent="." unique_id=1727491464]
+wait_time = 0.05
 one_shot = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=555856531]

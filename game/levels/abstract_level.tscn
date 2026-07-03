@@ -3435,10 +3435,10 @@ repeat_times = 3
 [node name="Sprite2D" type="Sprite2D" parent="Background/Parallax1" unique_id=1313622890]
 texture = ExtResource("2_3fw0b")
 
-[node name="Player" parent="." unique_id=763780926 instance=ExtResource("2_r0ht6")]
-
 [node name="BackgroundTileMapLayer" type="TileMapLayer" parent="." unique_id=1991567130]
 tile_set = SubResource("TileSet_4l6p7")
+
+[node name="Player" parent="." unique_id=763780926 instance=ExtResource("2_r0ht6")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=502099522]
 tile_set = SubResource("TileSet_71ysb")
@@ -3477,13 +3477,16 @@ position = Vector2(51, 19)
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1815975678 instance=ExtResource("3_fnnmn")]
 unique_name_in_owner = true
 process_mode = 2
+visible = false
 
 [node name="GameOverMenu" parent="CanvasLayer" unique_id=795145041 instance=ExtResource("7_l0xih")]
 unique_name_in_owner = true
 process_mode = 2
+visible = false
 
 [node name="CompletionMenu" parent="CanvasLayer" unique_id=1435656270 instance=ExtResource("10_8xgvj")]
 unique_name_in_owner = true
+visible = false
 
 [node name="CorruptionTimer" type="Timer" parent="." unique_id=783383429]
 wait_time = 0.5
