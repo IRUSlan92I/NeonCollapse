@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dh2awtco3curi" path="res://game/managers/sound_manager.gd" id="1_cg0sy"]
 [ext_resource type="AudioStream" uid="uid://cwmibbhy2fpq2" path="res://sound/ui/accept.wav" id="2_ge1il"]
+[ext_resource type="AudioStream" uid="uid://bh6ukmdbt5jw8" path="res://sound/ui/best_with_controller.wav" id="3_3d1ws"]
 [ext_resource type="AudioStream" uid="uid://d2tsomsqmhf0h" path="res://sound/ui/decline.wav" id="3_agyxs"]
 [ext_resource type="AudioStream" uid="uid://cfb2adf5hft7b" path="res://sound/ui/select.wav" id="4_0i6kl"]
 [ext_resource type="AudioStream" uid="uid://duahboiexw0ic" path="res://sound/sfx/congratulations.wav" id="5_13qx5"]
@@ -30,6 +31,7 @@ pitch_sfx_max = 1.05
 player_count_ui = 8
 player_count_sfx = 32
 ui_stream_accept = ExtResource("2_ge1il")
+ui_stream_best_with_controller = ExtResource("3_3d1ws")
 ui_stream_decline = ExtResource("3_agyxs")
 ui_stream_select = ExtResource("4_0i6kl")
 sfx_stream_congratulations = ExtResource("5_13qx5")
