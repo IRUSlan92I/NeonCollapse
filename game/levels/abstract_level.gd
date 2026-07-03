@@ -4,6 +4,7 @@ extends Node2D
 
 const CORRUPTION_DAMAGE = 10.0
 const MAX_DISTANCE_TO_CORRUPTION = 320.0
+const CAMERA_LIMIT_OFFSET = -20
 
 
 @export var is_player_running_on_start := true
@@ -30,12 +31,15 @@ var _corruption_x: float
 @onready var code_material : ShaderMaterial = $%CodeSprite.material
 
 @onready var camera : Camera2D = player.camera
+@onready var level_end : Area2D = $LevelEnd
 
 @onready var parallax_1 : Parallax2D = $Background/Parallax1
 
 
 func _ready() -> void:
 	parallax_1.scroll_offset.x = -background_offset * parallax_1.scroll_scale.x
+	
+	camera.limit_right = int(level_end.position.x + CAMERA_LIMIT_OFFSET)
 	
 	_corruption_x = initial_corruption_x
 	pause_menu.hide()

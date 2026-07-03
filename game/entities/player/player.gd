@@ -32,12 +32,6 @@ const CAMERA_OFFSET_TIME = 1.0
 @export_range(0.0, 1000.0) var slow_down_sustain := 0.70
 @export_range(0.0, 1000.0) var slow_down_release := 0.25
 
-@export var camera_limit_right := 10000000:
-	set(value):
-		camera_limit_right = value
-		if is_node_ready():
-			_update_camera_limit_right()
-
 
 var _slow_down_tween: Tween
 var _camera_offset_tween: Tween
@@ -87,9 +81,7 @@ func _ready() -> void:
 		sprite.hide()
 
 
-func _physics_process(delta: float) -> void:
-	_update_camera_limit_right()
-	
+func _physics_process(delta: float) -> void:	
 	if is_on_floor():
 		floor_coyote_time_timer.start()
 		_last_wall_normal = 0.0
@@ -168,10 +160,6 @@ func deal_damage(value: float) -> void:
 	health_changed.emit(_current_health)
 	if _current_health < 0.0 or is_zero_approx(_current_health):
 		dead.emit()
-
-
-func _update_camera_limit_right() -> void:
-	camera.limit_right = camera_limit_right
 
 
 func _can_attack() -> bool:
