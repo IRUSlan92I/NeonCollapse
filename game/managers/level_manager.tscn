@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://d0rwlgmvvo637" path="res://game/levels/level_2.tscn" id="3_r84xe"]
 [ext_resource type="PackedScene" uid="uid://ci2pna4al2l1g" path="res://game/levels/level_3.tscn" id="4_r84xe"]
 [ext_resource type="PackedScene" uid="uid://b2melvf4sxh3y" path="res://game/levels/level_4.tscn" id="5_yl05u"]
+[ext_resource type="PackedScene" uid="uid://bw1w6x8ncgi4c" path="res://game/levels/level_5.tscn" id="6_eo2u3"]
 
 [node name="LevelManager" type="Node" unique_id=1657502743]
 script = ExtResource("1_te7jw")
-levels = Array[PackedScene]([ExtResource("2_dp0cj"), ExtResource("3_r84xe"), ExtResource("4_r84xe"), ExtResource("5_yl05u")])
+levels = Array[PackedScene]([ExtResource("2_dp0cj"), ExtResource("3_r84xe"), ExtResource("4_r84xe"), ExtResource("5_yl05u"), ExtResource("6_eo2u3")])
