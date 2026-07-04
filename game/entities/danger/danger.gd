@@ -4,7 +4,7 @@ extends ColorRect
 
 
 const DAMAGE_VALUE = 50.0
-const COLLISION_OFFSET = Vector2(8, 8)
+const COLLISION_OFFSET = Vector2(16, 16)
 
 
 var _player : Player

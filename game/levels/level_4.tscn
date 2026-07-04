@@ -20,23 +20,19 @@ tile_map_data = PackedByteArray("AAAJAPn/AQABAAsAAAAKAPn/AQADABIAAAAKAPr/AQACABE
 position = Vector2(7054, -79)
 
 [node name="Jump1" type="Node2D" parent="Guidances" parent_id_path=PackedInt32Array(1356136322) index="1" unique_id=140077451]
-position = Vector2(2578, -444)
+position = Vector2(2567, -484)
 
 [node name="Keyboard" parent="Guidances/Jump1" index="0" unique_id=1389188230 instance=ExtResource("2_2vfi4")]
-custom_size = Vector2(98, 194)
+custom_size = Vector2(98, 130)
 size = 2
-text = "I
-
-D
+text = "D
 +
 SPACE"
 
 [node name="Gamepad" parent="Guidances/Jump1" index="1" unique_id=1731715060 instance=ExtResource("2_2vfi4")]
-custom_size = Vector2(98, 194)
+custom_size = Vector2(98, 130)
 size = 2
-text = "I
-
-LS >
+text = "LS >
 +
 A"
 
@@ -45,23 +41,19 @@ keyboard_guidance = NodePath("../Keyboard")
 gamepad_guidance = NodePath("../Gamepad")
 
 [node name="Jump2" type="Node2D" parent="Guidances" parent_id_path=PackedInt32Array(1356136322) index="2" unique_id=1019127324]
-position = Vector2(2337, -558)
+position = Vector2(2338, -526)
 
 [node name="Keyboard" parent="Guidances/Jump2" index="0" unique_id=805769241 instance=ExtResource("2_2vfi4")]
-custom_size = Vector2(98, 194)
+custom_size = Vector2(98, 130)
 size = 2
-text = "II
-
-A
+text = "A
 +
 SPACE"
 
 [node name="Gamepad" parent="Guidances/Jump2" index="1" unique_id=244809676 instance=ExtResource("2_2vfi4")]
-custom_size = Vector2(98, 194)
+custom_size = Vector2(98, 130)
 size = 2
-text = "II
-
-< LS
+text = "< LS
 +
 A"
 

@@ -65,6 +65,8 @@ text = "FULLSCREEN"
 [node name="WindowFactorLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1054219556]
 unique_name_in_owner = true
 layout_mode = 2
+text = "WINDOW FACTOR"
+horizontal_alignment = 2
 
 [node name="WindowFactorContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=2006592987]
 unique_name_in_owner = true
@@ -102,7 +104,8 @@ metadata/window_factor = 5
 
 [node name="MasterLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1502062154]
 layout_mode = 2
-text = "MASTER"
+text = "MASTER VOLUME"
+horizontal_alignment = 2
 
 [node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1600615574]
 unique_name_in_owner = true
@@ -116,7 +119,8 @@ ticks_position = 3
 
 [node name="UILabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1039303416]
 layout_mode = 2
-text = "UI"
+text = "UI VOLUME"
+horizontal_alignment = 2
 
 [node name="UISlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=2094741924]
 unique_name_in_owner = true
@@ -130,7 +134,8 @@ ticks_position = 3
 
 [node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=122025284]
 layout_mode = 2
-text = "SFX"
+text = "SFX VOLUME"
+horizontal_alignment = 2
 
 [node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=630139889]
 unique_name_in_owner = true
@@ -144,7 +149,8 @@ ticks_position = 3
 
 [node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=2133353313]
 layout_mode = 2
-text = "MUSIC"
+text = "MUSIC VOLUME"
+horizontal_alignment = 2
 
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=537100873]
 unique_name_in_owner = true

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dlntrn4m04pxn" path="res://game/entities/guidance/level_end_guidance.tscn" id="2_1t02d"]
 [ext_resource type="PackedScene" uid="uid://dxqq07mde0b4a" path="res://game/entities/danger/danger.tscn" id="2_2w2dg"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2w2dg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1t02d"]
 viewport_path = NodePath("CanvasLayer/CodeViewport")
 
 [node name="Level7" unique_id=1001045799 instance=ExtResource("1_bhhdo")]
@@ -72,7 +72,7 @@ tile_map_data = PackedByteArray("AAD///P/AQAAAA4AAAANAPP/AQABAA4AAAATAAAAAQAAAA0
 position = Vector2(4762, 82)
 
 [node name="CodeSprite" parent="CanvasLayer" parent_id_path=PackedInt32Array(1125559156) index="1" unique_id=1152584149]
-texture = SubResource("ViewportTexture_2w2dg")
+texture = SubResource("ViewportTexture_1t02d")
 
 [node name="LevelEnd" parent="." index="14" unique_id=1444951079]
 position = Vector2(5208, -608)

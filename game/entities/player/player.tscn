@@ -8,10 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bboaskqiwnbsb" path="res://game/entities/player/states/jump_state.tscn" id="6_v0nmi"]
 [ext_resource type="PackedScene" uid="uid://ba5sknbijujl2" path="res://game/entities/player/states/wall_state.tscn" id="7_dhej3"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
-radius = 4.5
-height = 28.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjfdk"]
 atlas = ExtResource("2_cjfdk")
 region = Rect2(0, 32, 32, 32)
@@ -524,8 +520,11 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
+radius = 2.5
+height = 24.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_riqys"]
-radius = 8.0
 height = 24.0
 
 [sub_resource type="Gradient" id="Gradient_qr0ht"]
@@ -549,13 +548,9 @@ color_ramp = SubResource("GradientTexture1D_riqys")
 collision_layer = 2
 script = ExtResource("1_1a4jd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=379935685]
-position = Vector2(0.5, 2)
-shape = SubResource("CapsuleShape2D_bhunq")
-
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=2025942250]
 sprite_frames = SubResource("SpriteFrames_bhunq")
-animation = &"run_right"
+animation = &"idle"
 
 [node name="BladeSprite" type="AnimatedSprite2D" parent="." unique_id=1561250707]
 position = Vector2(0, 8)
@@ -576,8 +571,12 @@ animation = &"attack"
 frame = 5
 frame_progress = 1.0
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=379935685]
+position = Vector2(0.5, 4)
+shape = SubResource("CapsuleShape2D_bhunq")
+
 [node name="LeftAttackArea" type="Area2D" parent="." unique_id=829956444]
-position = Vector2(-20, 0)
+position = Vector2(-18, 0)
 collision_layer = 16
 collision_mask = 8
 monitoring = false
@@ -586,7 +585,7 @@ monitoring = false
 shape = SubResource("CapsuleShape2D_riqys")
 
 [node name="RightAttackArea" type="Area2D" parent="." unique_id=1656556085]
-position = Vector2(20, 0)
+position = Vector2(19, 0)
 collision_layer = 16
 collision_mask = 8
 monitoring = false
@@ -680,7 +679,7 @@ wait_time = 0.5
 
 [node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1208896947]
 process_callback = 0
-wait_time = 0.5
+wait_time = 0.4
 one_shot = true
 
 [node name="WallLeftParticles" type="GPUParticles2D" parent="." unique_id=2009522894]

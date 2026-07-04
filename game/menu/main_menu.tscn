@@ -65,7 +65,7 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("3_i4f54")
 theme_override_font_sizes/font_size = 8
-text = "v 1.0.0
+text = "v 1.0.1
 (c) Ruslan Ignatov 2026
 Powered by Godot Engine"
 horizontal_alignment = 2
