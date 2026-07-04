@@ -88,24 +88,22 @@ func _physics_process(delta: float) -> void:
 	if is_on_ceiling_only() and velocity.y < 0.0:
 		velocity.y = 0.0
 	
-	var input_direction := Input.get_axis("move_left", "move_right")
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer.start()
 	
 	if not is_on_floor():
 		var gravity_factor := gravity_factor_jump if velocity.y < 0.0 else gravity_factor_fall
 		
-		if is_on_wall_only() and not is_zero_approx(input_direction):
+		if is_on_wall_only():
+			wall_coyote_time_timer.start()
 			var wall_normal := get_wall_normal().x
-			if (wall_normal * input_direction) < 0.0:
-				wall_coyote_time_timer.start()
-				if sign(wall_normal) != sign(_last_wall_normal):
-					wall_attach_timer.start()
-					velocity.y = 0.0
-				_last_wall_normal = wall_normal
-				
-				if not Input.is_action_pressed("move_down") and velocity.y > 0.0:
-					gravity_factor = gravity_factor_slide if wall_attach_timer.is_stopped() else 0.0
+			if sign(wall_normal) != sign(_last_wall_normal):
+				wall_attach_timer.start()
+				velocity.y = 0.0
+			_last_wall_normal = wall_normal
+			
+			if not Input.is_action_pressed("move_down") and velocity.y > 0.0:
+				gravity_factor = gravity_factor_slide if wall_attach_timer.is_stopped() else 0.0
 		
 		if velocity.y < 0.0 and not Input.is_action_pressed("jump"):
 			velocity.y *= gravity_factor_passive_jump
@@ -126,6 +124,7 @@ func _physics_process(delta: float) -> void:
 			wall_coyote_time_timer.stop()
 			SoundManager.play_sfx_stream(SoundManager.sfx_stream_wall_jump, global_position)
 	
+	var input_direction := Input.get_axis("move_left", "move_right")
 	if input_direction:
 		var input_velocity := input_direction * _max_speed
 		velocity.x = move_toward(velocity.x, input_velocity, move_acceleration * delta)
