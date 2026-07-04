@@ -19,45 +19,18 @@ tile_map_data = PackedByteArray("AAAJAPn/AQABAAsAAAAKAPn/AQADABIAAAAKAPr/AQACABE
 [node name="LevelEndGuidance" parent="Guidances" parent_id_path=PackedInt32Array(1356136322) index="0" unique_id=1797017316]
 position = Vector2(7054, -79)
 
-[node name="Jump1" type="Node2D" parent="Guidances" parent_id_path=PackedInt32Array(1356136322) index="1" unique_id=140077451]
-position = Vector2(2567, -484)
+[node name="Jump" type="Node2D" parent="Guidances" parent_id_path=PackedInt32Array(1356136322) index="1" unique_id=140077451]
+position = Vector2(2363, -481)
 
-[node name="Keyboard" parent="Guidances/Jump1" index="0" unique_id=1389188230 instance=ExtResource("2_2vfi4")]
-custom_size = Vector2(98, 130)
-size = 2
-text = "D
-+
-SPACE"
+[node name="Keyboard" parent="Guidances/Jump" index="0" unique_id=1389188230 instance=ExtResource("2_2vfi4")]
+position = Vector2(-24, 0)
+size = 1
+text = "SPACE"
 
-[node name="Gamepad" parent="Guidances/Jump1" index="1" unique_id=1731715060 instance=ExtResource("2_2vfi4")]
-custom_size = Vector2(98, 130)
-size = 2
-text = "LS >
-+
-A"
+[node name="Gamepad" parent="Guidances/Jump" index="1" unique_id=1731715060 instance=ExtResource("2_2vfi4")]
+text = "A"
 
-[node name="ControlGuidanceSwitcher" parent="Guidances/Jump1" index="2" unique_id=552528483 node_paths=PackedStringArray("keyboard_guidance", "gamepad_guidance") instance=ExtResource("3_3jny0")]
-keyboard_guidance = NodePath("../Keyboard")
-gamepad_guidance = NodePath("../Gamepad")
-
-[node name="Jump2" type="Node2D" parent="Guidances" parent_id_path=PackedInt32Array(1356136322) index="2" unique_id=1019127324]
-position = Vector2(2338, -526)
-
-[node name="Keyboard" parent="Guidances/Jump2" index="0" unique_id=805769241 instance=ExtResource("2_2vfi4")]
-custom_size = Vector2(98, 130)
-size = 2
-text = "A
-+
-SPACE"
-
-[node name="Gamepad" parent="Guidances/Jump2" index="1" unique_id=244809676 instance=ExtResource("2_2vfi4")]
-custom_size = Vector2(98, 130)
-size = 2
-text = "< LS
-+
-A"
-
-[node name="ControlGuidanceSwitcher" parent="Guidances/Jump2" index="2" unique_id=297418319 node_paths=PackedStringArray("keyboard_guidance", "gamepad_guidance") instance=ExtResource("3_3jny0")]
+[node name="ControlGuidanceSwitcher" parent="Guidances/Jump" index="2" unique_id=552528483 node_paths=PackedStringArray("keyboard_guidance", "gamepad_guidance") instance=ExtResource("3_3jny0")]
 keyboard_guidance = NodePath("../Keyboard")
 gamepad_guidance = NodePath("../Gamepad")
 
